@@ -1,0 +1,21 @@
+{
+  "name": "cloudy-success",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --port 5173 --host",
+    "build": "vite build",
+    "preview": "vite preview",
+    "django": "python manage.py runserver 8000",
+    "migrate": "python manage.py migrate",
+    "makemigrations": "python manage.py makemigrations"
+  },
+  "devDependencies": {
+    "vite": "^6.0.7",
+    "canvas-confetti": "^1.9.4"
+  },
+  "dependencies": {
+    "canvas-confetti": "^1.9.4"
+  }
+}

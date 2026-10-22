@@ -1,0 +1,1827 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>
+    (function() {
+      var savedTheme = localStorage.getItem('cloudy_theme');
+      if (savedTheme === 'light') {
+        document.documentElement.setAttribute('data-theme', 'light');
+      }
+    })();
+  </script>
+  <title>Cloudy Success | Modern Web Development & Digital Solutions</title>
+  <meta name="description" content="Cloudy Success crafts premium, high-performance websites and web applications for businesses, startups, and entrepreneurs. Founded by Yash Pawar.">
+  <meta name="keywords" content="Cloudy Success, Yash Pawar, Web Development, Custom Websites, E-commerce, UI/UX Design, Web Applications, Responsive Web Design">
+  <meta name="author" content="Yash Pawar">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://cloudysuccess.com/">
+  <meta property="og:title" content="Cloudy Success — Your Vision. Our Digital Solutions.">
+  <meta property="og:description" content="We design and develop modern digital experiences that help businesses stand out, connect with customers, and grow online.">
+  <meta property="og:image" content="/assets/hero-showcase.jpg">
+
+  <!-- Twitter Card -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://cloudysuccess.com/">
+  <meta property="twitter:title" content="Cloudy Success — Your Vision. Our Digital Solutions.">
+  <meta property="twitter:description" content="Premium web development and digital solutions by Yash Pawar.">
+  <meta property="twitter:image" content="/assets/hero-showcase.jpg">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  
+  <!-- Google Fonts: Outfit for sleek modern headings, Plus Jakarta Sans for ultra-clean body typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  
+
+  <!-- Schema.org Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Cloudy Success",
+    "image": "https://cloudysuccess.com/assets/hero-showcase.jpg",
+    "founder": {
+      "@type": "Person",
+      "name": "Yash Pawar",
+      "image": "https://cloudysuccess.com/assets/founder-yash-pawar.jpg",
+      "jobTitle": "Founder & Lead Developer",
+      "email": "pawaryash0711@gmail.com",
+      "telephone": "+919356047461"
+    },
+    "description": "Premium modern web development, e-commerce, and digital solutions agency founded by Yash Pawar.",
+    "telephone": "+919356047461",
+    "email": "pawaryash0711@gmail.com",
+    "url": "https://cloudysuccess.com",
+    "slogan": "Your Vision. Our Digital Solutions."
+  }
+  </script>
+  <script type="module" crossorigin src="/assets/index-xSVHmBL4.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-85V-UKWm.css">
+</head>
+<body class="bg-navy-950 text-slate-100 antialiased selection:bg-cyan-500 selection:text-navy-950">
+
+  <!-- Preloader Screen -->
+  <div id="preloader" class="preloader" aria-hidden="true">
+    <div class="preloader-content">
+      <div class="preloader-logo-wrapper">
+        <img src="/logo.svg" alt="Cloudy Success Logo" class="preloader-logo">
+        <div class="preloader-ring"></div>
+      </div>
+      <div class="preloader-brand">
+        <span class="preloader-title">Cloudy Success</span>
+        <span class="preloader-tagline">Your Vision. Our Digital Solutions.</span>
+      </div>
+      <div class="preloader-bar-bg">
+        <div class="preloader-bar" id="preloader-bar"></div>
+      </div>
+      <span class="preloader-status" id="preloader-status">Initializing digital studio...</span>
+    </div>
+  </div>
+
+  <!-- Custom Cursor (Desktop Only) -->
+  <div class="custom-cursor" id="custom-cursor" aria-hidden="true"></div>
+  <div class="custom-cursor-follower" id="custom-cursor-follower" aria-hidden="true"></div>
+
+  <!-- Background Ambient Lights & Interactive Canvas -->
+  <div class="ambient-glow ambient-glow-1" aria-hidden="true"></div>
+  <div class="ambient-glow ambient-glow-2" aria-hidden="true"></div>
+  <div class="ambient-glow ambient-glow-3" aria-hidden="true"></div>
+  <canvas id="ambient-canvas" class="ambient-canvas" aria-hidden="true"></canvas>
+
+  <!-- Scroll Progress Indicator -->
+  <div class="scroll-progress-container" aria-hidden="true">
+    <div class="scroll-progress-bar" id="scroll-progress-bar"></div>
+  </div>
+
+  <!-- Navigation Bar -->
+  <header class="site-header" id="site-header">
+    <nav class="nav-container" aria-label="Main Navigation">
+      <!-- Brand Logo -->
+      <a href="#hero" class="nav-brand" aria-label="Cloudy Success Home">
+        <div class="brand-logo-icon">
+          <img src="/logo.svg" alt="Cloudy Success Logo" width="36" height="36">
+        </div>
+        <div class="brand-text">
+          <span class="brand-name">Cloudy<span class="text-cyan-400">Success</span></span>
+          <span class="brand-badge"><span class="pulse-dot"></span> Available for Projects</span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <ul class="nav-links desktop-nav" role="list">
+        <li><a href="#hero" class="nav-link active" data-nav="hero">Home</a></li>
+        <li><a href="#about" class="nav-link" data-nav="about">About</a></li>
+        <li><a href="#services" class="nav-link" data-nav="services">Services</a></li>
+        <li><a href="#portfolio" class="nav-link" data-nav="portfolio">Portfolio</a></li>
+        <li><a href="#process" class="nav-link" data-nav="process">Process</a></li>
+        <li><a href="#pricing" class="nav-link" data-nav="pricing">Pricing</a></li>
+        <li><a href="#faq" class="nav-link" data-nav="faq">FAQ</a></li>
+        <li><a href="#contact" class="nav-link" data-nav="contact">Contact</a></li>
+      </ul>
+
+      <!-- Nav CTA & Controls -->
+      <div class="nav-actions">
+        <!-- Theme Switcher Button (Dark / White Mode) -->
+        <button type="button" class="theme-toggle-btn" id="theme-toggle-btn" aria-label="Toggle Light and Dark Mode" title="Toggle Theme">
+          <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+
+        <a href="#contact" class="btn btn-primary btn-sm magnetic-btn" id="nav-cta-btn">
+          <span>Start a Project</span>
+          <svg class="btn-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button type="button" class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-drawer">
+          <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+          </span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Mobile Drawer Menu Overlay -->
+  <div class="mobile-drawer" id="mobile-drawer" aria-hidden="true">
+    <div class="mobile-drawer-backdrop" id="mobile-drawer-backdrop"></div>
+    <div class="mobile-drawer-panel">
+      <div class="mobile-drawer-header">
+        <div class="brand-text">
+          <span class="brand-name">Cloudy<span class="text-cyan-400">Success</span></span>
+          <span class="brand-subtext">Your Vision. Our Digital Solutions.</span>
+        </div>
+        <button type="button" class="drawer-close-btn" id="drawer-close-btn" aria-label="Close menu">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+        </button>
+      </div>
+
+      <!-- Mobile Theme Row -->
+      <div class="mobile-theme-row">
+        <span class="mobile-theme-label">Appearance</span>
+        <button type="button" class="theme-toggle-btn mobile-drawer-theme-btn" id="drawer-theme-toggle-btn" aria-label="Toggle Light/Dark Theme">
+          <span class="theme-icon-wrap">
+            <svg class="sun-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+            <svg class="moon-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          </span>
+          <span class="theme-mode-text">White Mode</span>
+        </button>
+      </div>
+
+      <ul class="mobile-nav-links" role="list">
+        <li><a href="#hero" class="mobile-link"><span>01</span> Home</a></li>
+        <li><a href="#about" class="mobile-link"><span>02</span> About</a></li>
+        <li><a href="#services" class="mobile-link"><span>03</span> Services</a></li>
+        <li><a href="#portfolio" class="mobile-link"><span>04</span> Portfolio</a></li>
+        <li><a href="#process" class="mobile-link"><span>05</span> Process</a></li>
+        <li><a href="#pricing" class="mobile-link"><span>06</span> Pricing</a></li>
+        <li><a href="#faq" class="mobile-link"><span>07</span> FAQ</a></li>
+        <li><a href="#contact" class="mobile-link"><span>08</span> Contact & Enquiry</a></li>
+      </ul>
+
+      <div class="mobile-drawer-footer">
+        <a href="#contact" class="btn btn-primary w-full text-center" id="mobile-drawer-cta">
+          <span>Start Your Project</span>
+          <svg class="btn-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <div class="mobile-contact-chips">
+          <a href="https://wa.me/919356047461?text=Hello%20Yash,%20I'm%20interested%20in%20a%20website%20project%20with%20Cloudy%20Success." target="_blank" rel="noopener noreferrer" class="contact-chip whatsapp-chip">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+            <span>WhatsApp Quick Chat</span>
+          </a>
+          <a href="tel:+919356047461" class="contact-chip phone-chip">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <span>+91 93560 47461</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <main id="main-content">
+
+    <!-- ================================================================= -->
+    <!-- SECTION: HERO                                                     -->
+    <!-- ================================================================= -->
+    <section id="hero" class="hero-section section-padding" aria-labelledby="hero-heading">
+      <div class="container hero-container">
+        
+        <div class="hero-content reveal-fade-up">
+          <!-- Tagline Pill -->
+          <div class="hero-badge">
+            <span class="badge-icon">✨</span>
+            <span class="badge-text">Modern Web Engineering Studio</span>
+            <span class="badge-divider"></span>
+            <span class="badge-sub">Cloudy Success</span>
+          </div>
+
+          <!-- Main Headline -->
+          <h1 id="hero-heading" class="hero-title">
+            Your Vision. <br>
+            <span class="gradient-text">Our Digital Solutions.</span>
+          </h1>
+
+          <!-- Supporting Copy -->
+          <p class="hero-description">
+            We design and develop modern digital experiences that help businesses stand out, connect with customers, and grow online. From bespoke high-converting business websites to scalable web applications.
+          </p>
+
+          <!-- Action Buttons -->
+          <div class="hero-cta-group">
+            <a href="#contact" class="btn btn-primary btn-lg magnetic-btn">
+              <span>Start Your Project</span>
+              <svg class="btn-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <a href="#services" class="btn btn-secondary btn-lg">
+              <span>Explore Our Services</span>
+              <svg class="btn-arrow-down" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
+            </a>
+          </div>
+
+          <!-- Genuine Verified Metric Strip -->
+          <div class="hero-stats-strip">
+            <div class="hero-stat-item">
+              <div class="stat-number-wrapper">
+                <span class="stat-number" data-target="100">0</span><span class="stat-unit">%</span>
+              </div>
+              <span class="stat-label">Mobile & Tablet Responsive</span>
+            </div>
+            <div class="stat-separator"></div>
+            <div class="hero-stat-item">
+              <div class="stat-number-wrapper">
+                <span class="stat-prefix">&lt;</span><span class="stat-number" data-target="1.5" data-decimal="1">0</span><span class="stat-unit">s</span>
+              </div>
+              <span class="stat-label">Optimized Target Load Speed</span>
+            </div>
+            <div class="stat-separator"></div>
+            <div class="hero-stat-item">
+              <div class="stat-number-wrapper">
+                <span class="stat-number" data-target="24">0</span><span class="stat-unit">/7</span>
+              </div>
+              <span class="stat-label">WhatsApp Direct Support</span>
+            </div>
+            <div class="stat-separator"></div>
+            <div class="hero-stat-item">
+              <div class="stat-number-wrapper">
+                <span class="stat-number" data-target="4">0</span><span class="stat-unit">-Step</span>
+              </div>
+              <span class="stat-label">Agile Transparent Process</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero 3D Visual Preview Composition -->
+        <div class="hero-visual-wrapper reveal-fade-up" data-delay="200">
+          <div class="hero-3d-card" id="hero-3d-card">
+            
+            <!-- Glow backdrop -->
+            <div class="card-glow-reflection"></div>
+
+            <!-- Browser Window Frame -->
+            <div class="browser-mockup">
+              <!-- Browser Header Bar -->
+              <div class="browser-header">
+                <div class="browser-dots">
+                  <span class="dot dot-red"></span>
+                  <span class="dot dot-yellow"></span>
+                  <span class="dot dot-green"></span>
+                </div>
+                <div class="browser-address-bar">
+                  <svg class="padlock-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                  <span class="address-text">cloudysuccess.com/digital-studio</span>
+                </div>
+                <div class="browser-action-icon">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+                </div>
+              </div>
+
+              <!-- Main Showcase Image -->
+              <div class="browser-body">
+                <img src="/assets/hero-showcase.jpg" alt="Cloudy Success Digital Workspace & Interface Preview" class="showcase-img" width="1280" height="720" loading="eager">
+                
+                <!-- Floating Glass Card 1: Performance Badge -->
+                <div class="floating-widget widget-speed">
+                  <div class="widget-icon">⚡</div>
+                  <div class="widget-details">
+                    <span class="widget-value">99 / 100</span>
+                    <span class="widget-label">Google Lighthouse Speed</span>
+                  </div>
+                </div>
+
+                <!-- Floating Glass Card 2: Live Build Status -->
+                <div class="floating-widget widget-status">
+                  <div class="widget-pulse"></div>
+                  <div class="widget-details">
+                    <span class="widget-value">Production Ready</span>
+                    <span class="widget-label">Semantic & SEO Optimized</span>
+                  </div>
+                </div>
+
+                <!-- Floating Glass Card 3: Code Snippet -->
+                <div class="floating-widget widget-code">
+                  <div class="code-line"><span class="code-kwd">const</span> vision = <span class="code-str">"Your Dream"</span>;</div>
+                  <div class="code-line"><span class="code-kwd">await</span> CloudySuccess.<span class="code-fn">build</span>(vision);</div>
+                  <div class="code-line code-comment">// Result: Premium & Scalable 🚀</div>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Trust Ribbon / Audience Highlights -->
+      <div class="trust-ribbon">
+        <div class="container">
+          <p class="trust-title">Built For Growth-Focused Clients Across Industries</p>
+          <div class="trust-tags-marquee">
+            <span class="trust-pill">✨ Startups & Founders</span>
+            <span class="trust-pill">💼 Small Businesses</span>
+            <span class="trust-pill">🍽️ Cafes & Restaurants</span>
+            <span class="trust-pill">🛍️ E-Commerce Brands</span>
+            <span class="trust-pill">👨‍💻 Creative Professionals</span>
+            <span class="trust-pill">🏢 Corporate Enterprises</span>
+            <span class="trust-pill">📱 SaaS & Tech Products</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ================================================================= -->
+    <!-- SECTION: ABOUT CLOUDY SUCCESS                                     -->
+    <!-- ================================================================= -->
+    <section id="about" class="about-section section-padding" aria-labelledby="about-heading">
+      <div class="container">
+        
+        <div class="section-header text-center reveal-fade-up">
+          <span class="section-tag">About Our Agency</span>
+          <h2 id="about-heading" class="section-title">
+            Transforming Ambitions Into <br>
+            <span class="gradient-text">High-Caliber Digital Reality</span>
+          </h2>
+          <p class="section-subtitle">
+            Founded with a commitment to uncompromised craftsmanship, transparency, and results.
+          </p>
+        </div>
+
+        <div class="about-grid">
+          
+          <!-- Column 1: Philosophy & Story -->
+          <div class="about-story-col reveal-fade-up">
+            <div class="about-card glass-panel">
+              <div class="story-badge">
+                <span class="story-dot"></span>
+                <span>The Cloudy Success Philosophy</span>
+              </div>
+              <h3 class="about-card-title">Crafting digital solutions that command attention and drive conversions.</h3>
+              <p class="about-text">
+                At <strong>Cloudy Success</strong>, we believe every business deserves a web presence that communicates credibility within the first three seconds. We don't rely on bloated, slow pre-made themes or cookie-cutter templates.
+              </p>
+              <p class="about-text">
+                Whether you are a local entrepreneur, a specialty restaurant owner, or a scaling tech venture, our purpose is simple: <em>Your Vision. Our Digital Solutions.</em> We handle everything from intuitive UI/UX design to modern full-stack development, mobile responsiveness, and search engine readiness.
+              </p>
+
+              <!-- Core Pillars -->
+              <div class="pillars-list">
+                <div class="pillar-item">
+                  <div class="pillar-icon">🎯</div>
+                  <div class="pillar-info">
+                    <h4 class="pillar-title">Conversion-Driven Architecture</h4>
+                    <p class="pillar-desc">Designed with clear user pathways that turn casual visitors into paying customers.</p>
+                  </div>
+                </div>
+
+                <div class="pillar-item">
+                  <div class="pillar-icon">⚡</div>
+                  <div class="pillar-info">
+                    <h4 class="pillar-title">Speed & Mobile-First Excellence</h4>
+                    <p class="pillar-desc">Lightweight code, zero bloat, and flawless rendering on iPhones, Androids, tablets, and 4K displays.</p>
+                  </div>
+                </div>
+
+                <div class="pillar-item">
+                  <div class="pillar-icon">🤝</div>
+                  <div class="pillar-info">
+                    <h4 class="pillar-title">Direct Communication & Honest Pricing</h4>
+                    <p class="pillar-desc">No corporate middlemen. You collaborate directly with the lead engineer with weekly milestones.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Column 2: Founder Spotlight & Direct Connect -->
+          <div class="about-founder-col reveal-fade-up" data-delay="150">
+            <div class="founder-card glass-panel">
+              
+              <div class="founder-header">
+                <div class="founder-avatar-wrapper">
+                  <div class="founder-avatar-glow" aria-hidden="true"></div>
+                  <div class="founder-avatar-frame">
+                    <img src="/assets/founder-yash-pawar.jpg" alt="Yash Pawar - Founder & Lead Developer at Cloudy Success" class="founder-avatar-img" width="92" height="92" loading="eager">
+                  </div>
+                  <span class="founder-online-status" title="Active & Ready to Collaborate"></span>
+                </div>
+                <div class="founder-titles">
+                  <div class="founder-badge-row">
+                    <span class="founder-role">Founder & Lead Developer</span>
+                    <span class="founder-verified-pill"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> Verified</span>
+                  </div>
+                  <h3 class="founder-name">Yash Pawar</h3>
+                  <span class="founder-location">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                    India & Global Client Delivery
+                  </span>
+                </div>
+              </div>
+
+              <div class="founder-quote">
+                <svg class="quote-icon" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
+                <p>
+                  "I started Cloudy Success to give growing brands the same digital sophistication that high-budget enterprise companies enjoy. When you work with us, your project receives our dedicated, personal attention from day one."
+                </p>
+              </div>
+
+              <!-- Direct Communication Channels -->
+              <div class="founder-channels">
+                <a href="mailto:pawaryash0711@gmail.com" class="channel-link">
+                  <div class="channel-icon">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                  </div>
+                  <div class="channel-text">
+                    <span class="channel-label">Email Yash directly</span>
+                    <span class="channel-val">pawaryash0711@gmail.com</span>
+                  </div>
+                </a>
+
+                <a href="https://wa.me/919356047461?text=Hello%20Yash,%20I'd%20like%20to%20discuss%20a%20website%20project%20for%20my%20business." target="_blank" rel="noopener noreferrer" class="channel-link">
+                  <div class="channel-icon whatsapp-accent">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                  </div>
+                  <div class="channel-text">
+                    <span class="channel-label">Call or WhatsApp</span>
+                    <span class="channel-val">+91 93560 47461</span>
+                  </div>
+                </a>
+              </div>
+
+              <div class="founder-cta-wrap">
+                <a href="#contact" class="btn btn-primary w-full text-center">
+                  <span>Schedule Strategy Discussion</span>
+                  <svg class="btn-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ================================================================= -->
+    <!-- SECTION: SERVICES                                                 -->
+    <!-- ================================================================= -->
+    <section id="services" class="services-section section-padding" aria-labelledby="services-heading">
+      <div class="container">
+        
+        <div class="section-header text-center reveal-fade-up">
+          <span class="section-tag">What We Build</span>
+          <h2 id="services-heading" class="section-title">
+            Comprehensive Digital Services <br>
+            <span class="gradient-text">Engineered for Your Growth</span>
+          </h2>
+          <p class="section-subtitle">
+            From sleek promotional websites to feature-rich digital platforms, each solution is custom crafted to your exact business objectives.
+          </p>
+        </div>
+
+        <div class="services-grid">
+          
+          <!-- Service 1: Business Website Development -->
+          <div class="service-card glass-panel reveal-fade-up" data-service-id="business-website">
+            <div class="service-icon-box">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+            </div>
+            <h3 class="service-title">Business Website Development</h3>
+            <p class="service-desc">
+              Authoritative, brand-aligned websites for enterprises, consultants, and companies looking to establish instant market authority and generate high-value inbound leads.
+            </p>
+            <ul class="service-features" role="list">
+              <li>Custom branded visual design</li>
+              <li>Lead capture & quote generation funnels</li>
+              <li>Service pages & team showcase</li>
+              <li>SEO & Google Analytics setup</li>
+            </ul>
+            <div class="service-card-footer">
+              <button type="button" class="service-enquire-btn" data-service="Business Website Development">
+                <span>Enquire For This</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Service 2: E-commerce Website Development -->
+          <div class="service-card glass-panel reveal-fade-up" data-delay="100" data-service-id="ecommerce">
+            <div class="service-icon-box">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+            </div>
+            <h3 class="service-title">E-commerce Website Development</h3>
+            <p class="service-desc">
+              High-converting online storefronts engineered with smooth checkout flows, secure payments, inventory management, and fast product catalog navigation.
+            </p>
+            <ul class="service-features" role="list">
+              <li>Frictionless mobile checkout experience</li>
+              <li>Secure gateway integration (Stripe, Razorpay, etc.)</li>
+              <li>Product variant filters & inventory tracking</li>
+              <li>Order notifications & automated invoicing</li>
+            </ul>
+            <div class="service-card-footer">
+              <button type="button" class="service-enquire-btn" data-service="E-commerce Website Development">
+                <span>Enquire For This</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Service 3: Portfolio Websites -->
+          <div class="service-card glass-panel reveal-fade-up" data-delay="150" data-service-id="portfolio-sites">
+            <div class="service-icon-box">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+            </div>
+            <h3 class="service-title">Portfolio Websites</h3>
+            <p class="service-desc">
+              Sophisticated, editorial personal showcases for architects, designers, photographers, developers, and executives who need their work presented with pristine aesthetic impact.
+            </p>
+            <ul class="service-features" role="list">
+              <li>Interactive project galleries & case studies</li>
+              <li>Smooth transitions & image lightboxes</li>
+              <li>Client testimonial showcases</li>
+              <li>Direct booking & inquiry triggers</li>
+            </ul>
+            <div class="service-card-footer">
+              <button type="button" class="service-enquire-btn" data-service="Portfolio Websites">
+                <span>Enquire For This</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Service 4: Responsive Web Design -->
+          <div class="service-card glass-panel reveal-fade-up" data-delay="200" data-service-id="responsive-design">
+            <div class="service-icon-box">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>
+            </div>
+            <h3 class="service-title">Responsive Web Design</h3>
+            <p class="service-desc">
+              Fluid, adaptive layouts designed mobile-first so your website renders with immaculate visual precision across compact smartphones, iPads, laptops, and ultra-wide desktop monitors.
+            </p>
+            <ul class="service-features" role="list">
+              <li>Touch-optimized navigation & gestures</li>
+              <li>Adaptive typography & high-DPI graphics</li>
+              <li>Zero horizontal scroll or layout shift (CLS)</li>
+              <li>Cross-browser compatibility testing</li>
+            </ul>
+            <div class="service-card-footer">
+              <button type="button" class="service-enquire-btn" data-service="Responsive Web Design">
+                <span>Enquire For This</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Service 5: UI/UX Design -->
+          <div class="service-card glass-panel reveal-fade-up" data-delay="250" data-service-id="ui-ux">
+            <div class="service-icon-box">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+            </div>
+            <h3 class="service-title">UI/UX Design</h3>
+            <p class="service-desc">
+              Research-backed interface and user experience design that balances modern visual allure with friction-free usability, intuitive design systems, and engaging micro-interactions.
+            </p>
+            <ul class="service-features" role="list">
+              <li>Interactive clickable prototypes</li>
+              <li>Design system & component libraries</li>
+              <li>User journey mapping & usability audits</li>
+              <li>WCAG 2.1 accessible color schemes</li>
+            </ul>
+            <div class="service-card-footer">
+              <button type="button" class="service-enquire-btn" data-service="UI/UX Design">
+                <span>Enquire For This</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Service 6: Web Applications -->
+          <div class="service-card glass-panel reveal-fade-up" data-delay="300" data-service-id="web-apps">
+            <div class="service-icon-box">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+            </div>
+            <h3 class="service-title">Web Applications</h3>
+            <p class="service-desc">
+              Custom dynamic applications, SaaS MVPs, customer dashboards, internal operational tools, and API-driven web portals built for high security, speed, and long-term scalability.
+            </p>
+            <ul class="service-features" role="list">
+              <li>Dynamic data rendering & state management</li>
+              <li>Secure user authentication & roles</li>
+              <li>RESTful / GraphQL API integrations</li>
+              <li>Fast cloud deployment & database setups</li>
+            </ul>
+            <div class="service-card-footer">
+              <button type="button" class="service-enquire-btn" data-service="Web Applications">
+                <span>Enquire For This</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Service 7: Landing Pages -->
+          <div class="service-card glass-panel reveal-fade-up" data-delay="350" data-service-id="landing-pages">
+            <div class="service-icon-box">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path></svg>
+            </div>
+            <h3 class="service-title">Landing Pages</h3>
+            <p class="service-desc">
+              Hyper-focused, conversion-optimized landing pages engineered for product launches, marketing campaigns, ad traffic conversion, and early sign-up waitlists.
+            </p>
+            <ul class="service-features" role="list">
+              <li>High-velocity copy-first visual hierarchy</li>
+              <li>A/B testing-ready component structure</li>
+              <li>Instant form & lead webhook routing</li>
+              <li>Sub-second loading speeds for low bounce rate</li>
+            </ul>
+            <div class="service-card-footer">
+              <button type="button" class="service-enquire-btn" data-service="Landing Pages">
+                <span>Enquire For This</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Service 8: Website Maintenance & Support -->
+          <div class="service-card glass-panel reveal-fade-up" data-delay="400" data-service-id="maintenance">
+            <div class="service-icon-box">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
+            </div>
+            <h3 class="service-title">Website Maintenance and Support</h3>
+            <p class="service-desc">
+              Ongoing technical peace of mind. We keep your website running at peak health with regular security updates, automated backups, speed tuning, content updates, and direct support.
+            </p>
+            <ul class="service-features" role="list">
+              <li>24/7 uptime monitoring & rapid troubleshooting</li>
+              <li>Core updates, security patching & backups</li>
+              <li>Monthly speed audits & performance tuning</li>
+              <li>Direct WhatsApp assistance for urgent tweaks</li>
+            </ul>
+            <div class="service-card-footer">
+              <button type="button" class="service-enquire-btn" data-service="Website Maintenance and Support">
+                <span>Enquire For This</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </button>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ================================================================= -->
+    <!-- SECTION: PORTFOLIO                                                -->
+    <!-- ================================================================= -->
+    <section id="portfolio" class="portfolio-section section-padding" aria-labelledby="portfolio-heading">
+      <div class="container">
+        
+        <div class="section-header text-center reveal-fade-up">
+          <span class="section-tag">Featured Work</span>
+          <h2 id="portfolio-heading" class="section-title">
+            Craftsmanship on Display <br>
+            <span class="gradient-text">Selected Project Concepts</span>
+          </h2>
+          <p class="section-subtitle">
+            Explore our curated digital projects. Each demonstration concept reflects our standard of visual aesthetics, UX depth, and responsive performance.
+          </p>
+
+          <!-- Filter Pills -->
+          <div class="portfolio-filters" role="tablist" aria-label="Portfolio filters">
+            <button type="button" class="filter-btn active" data-filter="all" role="tab" aria-selected="true">All Projects</button>
+            <button type="button" class="filter-btn" data-filter="corporate" role="tab" aria-selected="false">Corporate</button>
+            <button type="button" class="filter-btn" data-filter="restaurant" role="tab" aria-selected="false">Restaurant</button>
+            <button type="button" class="filter-btn" data-filter="portfolio" role="tab" aria-selected="false">Portfolio</button>
+            <button type="button" class="filter-btn" data-filter="ecommerce" role="tab" aria-selected="false">E-Commerce</button>
+            <button type="button" class="filter-btn" data-filter="saas" role="tab" aria-selected="false">SaaS Dashboard</button>
+            <button type="button" class="filter-btn" data-filter="agency" role="tab" aria-selected="false">Creative Agency</button>
+          </div>
+        </div>
+
+        <!-- Portfolio Cards Grid -->
+        <div class="portfolio-grid" id="portfolio-grid">
+          
+          <!-- Project 1: Corporate Business Website -->
+          <div class="portfolio-card glass-panel reveal-fade-up" data-category="corporate" data-project="apex-horizon">
+            <div class="project-thumb-box">
+              <img src="/assets/portfolio-corporate.jpg" alt="Apex Horizon Capital - Corporate Business Website Concept" class="project-thumb" width="640" height="360" loading="lazy">
+              <div class="project-overlay">
+                <button type="button" class="btn btn-primary btn-sm view-case-btn" data-project-id="corporate">
+                  <span>View Concept Details</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+                </button>
+              </div>
+              <span class="concept-badge">Agency Concept</span>
+            </div>
+            <div class="project-body">
+              <div class="project-meta">
+                <span class="project-category">Corporate Business</span>
+                <span class="project-year">2026</span>
+              </div>
+              <h3 class="project-title">Apex Horizon Capital</h3>
+              <p class="project-summary">
+                A modern institutional financial consulting website featuring live interactive data metrics, investor portal UX, and executive lead generation.
+              </p>
+              <div class="tech-tags">
+                <span class="tech-tag">HTML5 / Vanilla CSS</span>
+                <span class="tech-tag">Financial Charts</span>
+                <span class="tech-tag">Responsive Grid</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 2: Restaurant Website -->
+          <div class="portfolio-card glass-panel reveal-fade-up" data-delay="100" data-category="restaurant" data-project="obsidian-room">
+            <div class="project-thumb-box">
+              <img src="/assets/portfolio-restaurant.jpg" alt="The Obsidian Room - Fine Dining & Culinary Website Concept" class="project-thumb" width="640" height="360" loading="lazy">
+              <div class="project-overlay">
+                <button type="button" class="btn btn-primary btn-sm view-case-btn" data-project-id="restaurant">
+                  <span>View Concept Details</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+                </button>
+              </div>
+              <span class="concept-badge">Agency Concept</span>
+            </div>
+            <div class="project-body">
+              <div class="project-meta">
+                <span class="project-category">Hospitality & Dining</span>
+                <span class="project-year">2026</span>
+              </div>
+              <h3 class="project-title">The Obsidian Room</h3>
+              <p class="project-summary">
+                Luxury gastronomic dining experience website with dark slate aesthetics, dynamic seasonal wine card, and table reservation booking flow.
+              </p>
+              <div class="tech-tags">
+                <span class="tech-tag">Culinary Visuals</span>
+                <span class="tech-tag">Table Booking UX</span>
+                <span class="tech-tag">Mobile Menu</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 3: Personal Portfolio -->
+          <div class="portfolio-card glass-panel reveal-fade-up" data-delay="150" data-category="portfolio" data-project="aeterna-architects">
+            <div class="project-thumb-box">
+              <img src="/assets/portfolio-architect.jpg" alt="Aeterna Architecture - Minimalist Studio Portfolio Concept" class="project-thumb" width="640" height="360" loading="lazy">
+              <div class="project-overlay">
+                <button type="button" class="btn btn-primary btn-sm view-case-btn" data-project-id="portfolio">
+                  <span>View Concept Details</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+                </button>
+              </div>
+              <span class="concept-badge">Agency Concept</span>
+            </div>
+            <div class="project-body">
+              <div class="project-meta">
+                <span class="project-category">Personal Portfolio</span>
+                <span class="project-year">2026</span>
+              </div>
+              <h3 class="project-title">Aeterna Architecture</h3>
+              <p class="project-summary">
+                Minimalist Swiss-inspired architect portfolio featuring blueprints viewer, monochromatic gallery grid, and editorial typography.
+              </p>
+              <div class="tech-tags">
+                <span class="tech-tag">Editorial Typography</span>
+                <span class="tech-tag">Blueprint Viewer</span>
+                <span class="tech-tag">Smooth Parallax</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 4: E-commerce Store -->
+          <div class="portfolio-card glass-panel reveal-fade-up" data-delay="200" data-category="ecommerce" data-project="velo-audio">
+            <div class="project-thumb-box">
+              <img src="/assets/portfolio-ecommerce.jpg" alt="Velo Audio Elite - High-End Audio E-commerce Store Concept" class="project-thumb" width="640" height="360" loading="lazy">
+              <div class="project-overlay">
+                <button type="button" class="btn btn-primary btn-sm view-case-btn" data-project-id="ecommerce">
+                  <span>View Concept Details</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+                </button>
+              </div>
+              <span class="concept-badge">Agency Concept</span>
+            </div>
+            <div class="project-body">
+              <div class="project-meta">
+                <span class="project-category">E-Commerce</span>
+                <span class="project-year">2026</span>
+              </div>
+              <h3 class="project-title">Velo Audio Elite</h3>
+              <p class="project-summary">
+                Direct-to-consumer premium audiophile storefront with interactive product 360 preview, one-click cart drawer, and review system.
+              </p>
+              <div class="tech-tags">
+                <span class="tech-tag">E-Commerce Engine</span>
+                <span class="tech-tag">Cart Drawer UX</span>
+                <span class="tech-tag">Fast Checkout</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 5: SaaS Dashboard -->
+          <div class="portfolio-card glass-panel reveal-fade-up" data-delay="250" data-category="saas" data-project="aurora-metrics">
+            <div class="project-thumb-box">
+              <img src="/assets/portfolio-saas.jpg" alt="Aurora Cloud Analytics - SaaS Dashboard Web App Concept" class="project-thumb" width="640" height="360" loading="lazy">
+              <div class="project-overlay">
+                <button type="button" class="btn btn-primary btn-sm view-case-btn" data-project-id="saas">
+                  <span>View Concept Details</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+                </button>
+              </div>
+              <span class="concept-badge">Agency Concept</span>
+            </div>
+            <div class="project-body">
+              <div class="project-meta">
+                <span class="project-category">SaaS Web Application</span>
+                <span class="project-year">2026</span>
+              </div>
+              <h3 class="project-title">Aurora Cloud Analytics</h3>
+              <p class="project-summary">
+                Full-featured telemetry analytics web platform with dynamic charts, MRR metrics, real-time user activity maps, and dark UI system.
+              </p>
+              <div class="tech-tags">
+                <span class="tech-tag">Web Application</span>
+                <span class="tech-tag">Dynamic Charts</span>
+                <span class="tech-tag">Security & Roles</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 6: Creative Agency Website -->
+          <div class="portfolio-card glass-panel reveal-fade-up" data-delay="300" data-category="agency" data-project="nebula-digital">
+            <div class="project-thumb-box">
+              <img src="/assets/portfolio-agency.jpg" alt="Nebula Digital Studio - Creative Agency Concept" class="project-thumb" width="640" height="360" loading="lazy">
+              <div class="project-overlay">
+                <button type="button" class="btn btn-primary btn-sm view-case-btn" data-project-id="agency">
+                  <span>View Concept Details</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+                </button>
+              </div>
+              <span class="concept-badge">Agency Concept</span>
+            </div>
+            <div class="project-body">
+              <div class="project-meta">
+                <span class="project-category">Creative Agency</span>
+                <span class="project-year">2026</span>
+              </div>
+              <h3 class="project-title">Nebula Digital Studio</h3>
+              <p class="project-summary">
+                Boundary-pushing motion-rich creative agency portfolio with electric cyan neon accents, 3D abstract models, and award-grade micro-interactions.
+              </p>
+              <div class="tech-tags">
+                <span class="tech-tag">Motion Design</span>
+                <span class="tech-tag">3D Interactive</span>
+                <span class="tech-tag">Brand Story</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="portfolio-cta-banner glass-panel reveal-fade-up">
+          <div class="banner-text">
+            <h3>Have a specific industry or bespoke idea in mind?</h3>
+            <p>We build tailored solutions from scratch to match your exact brand personality and operational goals.</p>
+          </div>
+          <a href="#contact" class="btn btn-primary magnetic-btn">
+            <span>Discuss Your Project Vision</span>
+            <svg class="btn-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ================================================================= -->
+    <!-- SECTION: OUR PROCESS                                              -->
+    <!-- ================================================================= -->
+    <section id="process" class="process-section section-padding" aria-labelledby="process-heading">
+      <div class="container">
+        
+        <div class="section-header text-center reveal-fade-up">
+          <span class="section-tag">How We Work</span>
+          <h2 id="process-heading" class="section-title">
+            Our 4-Step Agile Delivery <br>
+            <span class="gradient-text">From Discovery to Live Deployment</span>
+          </h2>
+          <p class="section-subtitle">
+            A transparent, collaborative workflow designed to eliminate guesswork, respect your timeline, and guarantee exceptional craftsmanship.
+          </p>
+        </div>
+
+        <!-- 4-Step Interactive Timeline -->
+        <div class="process-timeline">
+          
+          <!-- Step 1 -->
+          <div class="process-step glass-panel reveal-fade-up">
+            <div class="step-badge">
+              <span class="step-num">01</span>
+              <span class="step-icon">🔍</span>
+            </div>
+            <div class="step-content">
+              <span class="step-phase">Phase 01</span>
+              <h3 class="step-title">Discover & Align</h3>
+              <p class="step-desc">
+                We start with a thorough strategy session to understand your business model, customer psychology, core competitors, and clear milestones. No assumptions.
+              </p>
+              <ul class="step-deliverables" role="list">
+                <li>Goals & scope documentation</li>
+                <li>Target audience persona mapping</li>
+                <li>Content roadmap & sitemap structure</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="process-step glass-panel reveal-fade-up" data-delay="100">
+            <div class="step-badge">
+              <span class="step-num">02</span>
+              <span class="step-icon">🎨</span>
+            </div>
+            <div class="step-content">
+              <span class="step-phase">Phase 02</span>
+              <h3 class="step-title">Plan & Design</h3>
+              <p class="step-desc">
+                We design intuitive wireframes and high-fidelity visual concepts. You review interactive prototypes to ensure the aesthetic and user flow match your vision.
+              </p>
+              <ul class="step-deliverables" role="list">
+                <li>Wireframes & visual art direction</li>
+                <li>High-fidelity responsive UI mockups</li>
+                <li>Client review & revision feedback loop</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="process-step glass-panel reveal-fade-up" data-delay="200">
+            <div class="step-badge">
+              <span class="step-num">03</span>
+              <span class="step-icon">💻</span>
+            </div>
+            <div class="step-content">
+              <span class="step-phase">Phase 03</span>
+              <h3 class="step-title">Develop & Test</h3>
+              <p class="step-desc">
+                We write clean, modular, production-grade code. We optimize assets for sub-second loading, ensure cross-browser compatibility, and verify accessibility.
+              </p>
+              <ul class="step-deliverables" role="list">
+                <li>Modern semantic HTML5 / CSS / JS code</li>
+                <li>Speed optimization & mobile responsiveness</li>
+                <li>Cross-device, Safari, Chrome & Firefox testing</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Step 4 -->
+          <div class="process-step glass-panel reveal-fade-up" data-delay="300">
+            <div class="step-badge">
+              <span class="step-num">04</span>
+              <span class="step-icon">🚀</span>
+            </div>
+            <div class="step-content">
+              <span class="step-phase">Phase 04</span>
+              <h3 class="step-title">Launch & Support</h3>
+              <p class="step-desc">
+                We handle domain routing, SSL certificate setup, SEO indexing, and production deployment. After launch, we provide continuous technical assistance.
+              </p>
+              <ul class="step-deliverables" role="list">
+                <li>Live domain & SSL deployment</li>
+                <li>Google Search Console & indexing</li>
+                <li>Dedicated post-launch warranty & maintenance</li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ================================================================= -->
+    <!-- SECTION: PRICING PACKAGES & INSTANT QUOTE CALCULATOR             -->
+    <!-- ================================================================= -->
+    <section id="pricing" class="pricing-section section-padding" aria-labelledby="pricing-heading">
+      <div class="container">
+        
+        <div class="section-header text-center reveal-fade-up">
+          <span class="section-tag">Investment Packages</span>
+          <h2 id="pricing-heading" class="section-title">
+            Transparent Pricing Options <br>
+            <span class="gradient-text">Tailored to Your Stage of Growth</span>
+          </h2>
+          <p class="section-subtitle">
+            Clear investment estimates with zero hidden fees. Choose a standard package or use our interactive quote builder below.
+          </p>
+        </div>
+
+        <!-- 3 Standard Pricing Cards -->
+        <div class="pricing-grid">
+          
+          <!-- Tier 1: Static Website -->
+          <div class="pricing-card glass-panel reveal-fade-up">
+            <div class="pricing-header">
+              <span class="package-name">Static Website</span>
+              <p class="package-for">Fast, lightweight & responsive website for local shops, personal brands & portfolios.</p>
+              <div class="package-price">
+                <span class="currency">₹</span>
+                <span class="amount">4,000</span>
+                <span class="period">/ one-time estimate</span>
+              </div>
+              <span class="usd-equivalent">Approx ~$49 USD • Fast 3-Day Delivery</span>
+            </div>
+
+            <ul class="package-features" role="list">
+              <li><svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> 1 to 5 Fast-Loading Pages</li>
+              <li><svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> 100% Mobile & Tablet Responsive</li>
+              <li><svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Blazing-Fast Loading (&lt; 1.5s)</li>
+              <li><svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Direct WhatsApp & Call Integration</li>
+              <li><svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Contact Form with Email Routing</li>
+              <li><svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Basic On-Page SEO & Google Meta Setup</li>
+              <li><svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> 1 Month Support & Free Tweaks</li>
+            </ul>
+
+            <div class="pricing-footer">
+              <a href="#contact" class="btn btn-secondary w-full select-tier-btn" data-plan="Static Website">
+                <span>Select Static Plan</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Tier 2: Dynamic Website (Featured) -->
+          <div class="pricing-card glass-panel popular-tier reveal-fade-up" data-delay="100">
+            <div class="popular-tag">MOST POPULAR CHOICE</div>
+            <div class="pricing-header">
+              <span class="package-name">Dynamic Website</span>
+              <p class="package-for">Interactive, feature-rich & database-backed website for growing businesses.</p>
+              <div class="package-price">
+                <span class="currency">₹</span>
+                <span class="amount">8,000</span>
+                <span class="period">/ one-time estimate</span>
+              </div>
+              <span class="usd-equivalent">Approx ~$99 USD • Best Value for Growth</span>
+            </div>
+
+            <ul class="package-features" role="list">
+              <li><svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Up to 10 Tailored Dynamic Pages</li>
+              <li><svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> CMS / Admin Panel for Easy Updates</li>
+              <li><svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Interactive Lead Capture & Calculator</li>
+              <li><svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Custom Micro-Interactions & Modern UI</li>
+              <li><svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Complete Technical & Local SEO Setup</li>
+              <li><svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Speed Score 95+ Guarantee</li>
+              <li><svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> 3 Months Priority Support</li>
+            </ul>
+
+            <div class="pricing-footer">
+              <a href="#contact" class="btn btn-primary w-full select-tier-btn" data-plan="Dynamic Website">
+                <span>Select Dynamic Plan</span>
+                <svg class="btn-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Tier 3: Custom Solution -->
+          <div class="pricing-card glass-panel reveal-fade-up" data-delay="200">
+            <div class="pricing-header">
+              <span class="package-name">Custom Solution</span>
+              <p class="package-for">For ambitious enterprises needing bespoke web applications & portals.</p>
+              <div class="package-price">
+                <span class="currency">₹</span>
+                <span class="amount">15,000+</span>
+                <span class="period">/ bespoke scope</span>
+              </div>
+              <span class="usd-equivalent">Approx ~$189+ USD • Scoped to Requirements</span>
+            </div>
+
+            <ul class="package-features" role="list">
+              <li><svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Custom Web App / Portal Architecture</li>
+              <li><svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Advanced Database & REST API Integrations</li>
+              <li><svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Interactive Dashboard & Client Telemetry</li>
+              <li><svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Payment Gateway Integration (Razorpay/Stripe)</li>
+              <li><svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> High-Volume Performance & Hardening</li>
+              <li><svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> 6 Months Dedicated VIP Support</li>
+            </ul>
+
+            <div class="pricing-footer">
+              <a href="#contact" class="btn btn-secondary w-full select-tier-btn" data-plan="Custom Solution">
+                <span>Request Custom Plan</span>
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Interactive Instant Quote Builder Widget -->
+        <div class="quote-calculator-box glass-panel reveal-fade-up">
+          <div class="calculator-header">
+            <span class="calc-badge">⚡ Interactive Estimator</span>
+            <h3 class="calc-title">Instant Project Scope & Estimate Calculator</h3>
+            <p class="calc-subtitle">Configure your requirements to see an immediate estimated range, then send directly to Yash on WhatsApp!</p>
+          </div>
+
+          <div class="calculator-controls">
+            <!-- Control 1: Project Type -->
+            <div class="calc-group">
+              <label class="calc-label" for="calc-type">Project Type:</label>
+              <div class="calc-pills-radio" id="calc-type-group">
+                <button type="button" class="calc-pill active" data-type-cost="4000" data-type-name="Static Website">Static Website</button>
+                <button type="button" class="calc-pill" data-type-cost="8000" data-type-name="Dynamic Website">Dynamic Website</button>
+                <button type="button" class="calc-pill" data-type-cost="15000" data-type-name="E-Commerce Store">E-Commerce Store</button>
+                <button type="button" class="calc-pill" data-type-cost="25000" data-type-name="Custom Web App">Web App / SaaS</button>
+              </div>
+            </div>
+
+            <!-- Control 2: Number of Pages Slider -->
+            <div class="calc-group">
+              <div class="slider-label-row">
+                <label class="calc-label" for="calc-pages-slider">Estimated Number of Pages:</label>
+                <span class="slider-val" id="calc-pages-val">3 Pages</span>
+              </div>
+              <input type="range" id="calc-pages-slider" min="1" max="15" value="3" step="1" class="calc-slider" aria-label="Estimated number of pages">
+            </div>
+
+            <!-- Control 3: Add-on Features Checkboxes -->
+            <div class="calc-group">
+              <label class="calc-label">Enhancement Add-ons:</label>
+              <div class="calc-addons-grid">
+                <label class="addon-checkbox-label">
+                  <input type="checkbox" id="addon-seo" class="addon-check" value="1500" checked>
+                  <span class="checkbox-custom"></span>
+                  <span class="addon-text">Advanced SEO Setup (+₹1,500)</span>
+                </label>
+                <label class="addon-checkbox-label">
+                  <input type="checkbox" id="addon-anim" class="addon-check" value="2000">
+                  <span class="checkbox-custom"></span>
+                  <span class="addon-text">Premium Motion & Micro-Interactions (+₹2,000)</span>
+                </label>
+                <label class="addon-checkbox-label">
+                  <input type="checkbox" id="addon-whatsapp" class="addon-check" value="1000" checked>
+                  <span class="checkbox-custom"></span>
+                  <span class="addon-text">WhatsApp Direct Integration (+₹1,000)</span>
+                </label>
+                <label class="addon-checkbox-label">
+                  <input type="checkbox" id="addon-speed" class="addon-check" value="1500">
+                  <span class="checkbox-custom"></span>
+                  <span class="addon-text">Sub-1s Performance Hardening (+₹1,500)</span>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Calculator Result Output -->
+          <div class="calculator-result-bar">
+            <div class="result-breakdown">
+              <span class="result-label">Estimated Investment Range:</span>
+              <div class="result-cost" id="calculated-estimate">₹5,500 – ₹7,000</div>
+              <span class="result-disclaimer">*Transparent preliminary guide. Final estimate confirmed upon detailed discovery discussion.</span>
+            </div>
+            <div class="result-actions">
+              <button type="button" class="btn btn-primary" id="send-calc-whatsapp-btn">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                <span>Send Scope to WhatsApp</span>
+              </button>
+              <a href="#contact" class="btn btn-secondary" id="apply-calc-form-btn">
+                <span>Paste Into Enquiry Form</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ================================================================= -->
+    <!-- SECTION: CLIENT COMMITMENTS & TESTIMONIAL FRAMEWORK               -->
+    <!-- ================================================================= -->
+    <section id="trust" class="trust-section section-padding" aria-labelledby="trust-heading">
+      <div class="container">
+        
+        <div class="section-header text-center reveal-fade-up">
+          <span class="section-tag">Quality Guarantees</span>
+          <h2 id="trust-heading" class="section-title">
+            The Cloudy Success <br>
+            <span class="gradient-text">Client Guarantee Framework</span>
+          </h2>
+          <p class="section-subtitle">
+            Honest service, zero fabricated reviews, and clear guarantees you can rely on.
+          </p>
+        </div>
+
+        <div class="guarantees-grid">
+          
+          <div class="guarantee-card glass-panel reveal-fade-up">
+            <div class="guarantee-icon">🛡️</div>
+            <h3 class="guarantee-title">100% Satisfaction Guarantee</h3>
+            <p class="guarantee-desc">
+              We iterate until your vision is fully realized. We present interactive prototypes before writing a single line of code so there are no surprises.
+            </p>
+          </div>
+
+          <div class="guarantee-card glass-panel reveal-fade-up" data-delay="100">
+            <div class="guarantee-icon">⚡</div>
+            <h3 class="guarantee-title">Sub-2s Speed Target</h3>
+            <p class="guarantee-desc">
+              Every website is optimized for high Google PageSpeed scores, zero layout shift, modern WebP/SVG assets, and clean semantic structure.
+            </p>
+          </div>
+
+          <div class="guarantee-card glass-panel reveal-fade-up" data-delay="200">
+            <div class="guarantee-icon">📱</div>
+            <h3 class="guarantee-title">Flawless Mobile Experience</h3>
+            <p class="guarantee-desc">
+              Tested on real iPhones, Android devices, and iPads. We guarantee smooth touch targets, effortless navigation, and zero responsive glitches.
+            </p>
+          </div>
+
+          <div class="guarantee-card glass-panel reveal-fade-up" data-delay="300">
+            <div class="guarantee-icon">📦</div>
+            <h3 class="guarantee-title">100% Ownership & Clean Code</h3>
+            <p class="guarantee-desc">
+              You own every asset, line of code, and domain configuration. No vendor lock-in, no hidden proprietary licensing traps.
+            </p>
+          </div>
+
+        </div>
+
+        <!-- Verified Feedback Invitation Placeholder -->
+        <div class="testimonial-invitation glass-panel reveal-fade-up">
+          <div class="invitation-badge">🌟 Client Trust Policy</div>
+          <h3 class="invitation-title">Ready to Become Our Next Verified Success Story?</h3>
+          <p class="invitation-text">
+            We hold ourselves to the highest standards of integrity. We refuse to display fabricated testimonials or fake five-star reviews. When you partner with Cloudy Success, your real project outcome and review will be featured here with pride.
+          </p>
+          <a href="#contact" class="btn btn-primary magnetic-btn">
+            <span>Partner With Cloudy Success</span>
+            <svg class="btn-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ================================================================= -->
+    <!-- SECTION: FREQUENTLY ASKED QUESTIONS (FAQ)                         -->
+    <!-- ================================================================= -->
+    <section id="faq" class="faq-section section-padding" aria-labelledby="faq-heading">
+      <div class="container max-w-4xl">
+        
+        <div class="section-header text-center reveal-fade-up">
+          <span class="section-tag">Got Questions?</span>
+          <h2 id="faq-heading" class="section-title">
+            Frequently Asked <br>
+            <span class="gradient-text">Questions & Answers</span>
+          </h2>
+          <p class="section-subtitle">
+            Everything you need to know about our web development process, pricing, timeline, and hosting support.
+          </p>
+        </div>
+
+        <div class="faq-accordion" id="faq-accordion" role="region" aria-label="FAQ Accordion">
+          
+          <!-- FAQ 1 -->
+          <div class="faq-item glass-panel reveal-fade-up">
+            <button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-ans-1" id="faq-btn-1">
+              <span class="question-text">How long does it typically take to complete a website project?</span>
+              <span class="faq-chevron" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+              </span>
+            </button>
+            <div class="faq-answer" id="faq-ans-1" role="region" aria-labelledby="faq-btn-1" hidden>
+              <div class="faq-answer-inner">
+                <p>
+                  Most standard projects take between <strong>1 to 3 weeks</strong> depending on scope. A focused Starter Website or high-converting Landing Page is typically completed in <strong>5 to 7 business days</strong>, while a comprehensive Business Website or E-Commerce platform requires <strong>2 to 4 weeks</strong>. We provide a guaranteed delivery roadmap before kick-off.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ 2 -->
+          <div class="faq-item glass-panel reveal-fade-up" data-delay="100">
+            <button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-ans-2" id="faq-btn-2">
+              <span class="question-text">How are project payments and milestones structured?</span>
+              <span class="faq-chevron" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+              </span>
+            </button>
+            <div class="faq-answer" id="faq-ans-2" role="region" aria-labelledby="faq-btn-2" hidden>
+              <div class="faq-answer-inner">
+                <p>
+                  To protect both parties, we follow an agile milestone structure: typically <strong>50% advance</strong> to commence design and technical discovery, and the remaining <strong>50% upon final sign-off</strong> and live deployment to your domain. For larger custom projects, 3-stage milestone schedules are available.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ 3 -->
+          <div class="faq-item glass-panel reveal-fade-up" data-delay="150">
+            <button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-ans-3" id="faq-btn-3">
+              <span class="question-text">Will my website be 100% mobile responsive?</span>
+              <span class="faq-chevron" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+              </span>
+            </button>
+            <div class="faq-answer" id="faq-ans-3" role="region" aria-labelledby="faq-btn-3" hidden>
+              <div class="faq-answer-inner">
+                <p>
+                  <strong>Absolutely.</strong> Over 70% of web traffic today originates on mobile phones. Every project we engineer at Cloudy Success is designed mobile-first, ensuring smooth thumb gestures, ultra-fast loading, clear readability, and zero horizontal scroll on all modern devices.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ 4 -->
+          <div class="faq-item glass-panel reveal-fade-up" data-delay="200">
+            <button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-ans-4" id="faq-btn-4">
+              <span class="question-text">How many revisions are included in the development process?</span>
+              <span class="faq-chevron" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+              </span>
+            </button>
+            <div class="faq-answer" id="faq-ans-4" role="region" aria-labelledby="faq-btn-4" hidden>
+              <div class="faq-answer-inner">
+                <p>
+                  All our packages include <strong>up to 2-3 thorough review rounds</strong> at both the design prototype stage and post-development stage. We work closely with you via WhatsApp or video calls to incorporate your feedback until you are completely satisfied with the result.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ 5 -->
+          <div class="faq-item glass-panel reveal-fade-up" data-delay="250">
+            <button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-ans-5" id="faq-btn-5">
+              <span class="question-text">Do I need to purchase a domain name and web hosting myself?</span>
+              <span class="faq-chevron" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+              </span>
+            </button>
+            <div class="faq-answer" id="faq-ans-5" role="region" aria-labelledby="faq-btn-5" hidden>
+              <div class="faq-answer-inner">
+                <p>
+                  If you already have a domain and hosting, we can deploy directly to your existing setup. If you don't, we guide you step-by-step to acquire your domain (e.g., via Cloudflare, Namecheap, or GoDaddy) and set up high-performance, cost-effective hosting (Vercel, Netlify, Hostinger, or AWS). You maintain 100% legal ownership of your accounts.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ 6 -->
+          <div class="faq-item glass-panel reveal-fade-up" data-delay="300">
+            <button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-ans-6" id="faq-btn-6">
+              <span class="question-text">What ongoing maintenance or support do you provide after launch?</span>
+              <span class="faq-chevron" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+              </span>
+            </button>
+            <div class="faq-answer" id="faq-ans-6" role="region" aria-labelledby="faq-btn-6" hidden>
+              <div class="faq-answer-inner">
+                <p>
+                  Every website launch includes <strong>14 to 60 days of complimentary technical warranty</strong> for any bugs, minor content tweaks, and operational assistance. After that warranty period, we offer affordable monthly maintenance packages or on-demand support whenever you need updates.
+                </p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ================================================================= -->
+    <!-- SECTION: CONTACT & PROJECT ENQUIRY                                -->
+    <!-- ================================================================= -->
+    <section id="contact" class="contact-section section-padding" aria-labelledby="contact-heading">
+      <div class="container">
+        
+        <div class="section-header text-center reveal-fade-up">
+          <span class="section-tag">Let's Connect</span>
+          <h2 id="contact-heading" class="section-title">
+            Start Your Project With <br>
+            <span class="gradient-text">Cloudy Success</span>
+          </h2>
+          <p class="section-subtitle">
+            Tell us about your brand vision, target audience, and goals. We respond within 24 hours with a concrete roadmap and scope.
+          </p>
+        </div>
+
+        <div class="contact-grid">
+          
+          <!-- Contact Info Column -->
+          <div class="contact-info-col reveal-fade-up">
+            <div class="contact-info-card glass-panel">
+              <span class="info-badge">Direct Agency Access</span>
+              <h3 class="info-title">Speak Directly with Yash Pawar</h3>
+              <p class="info-description">
+                Have a quick question or want to discuss a live idea right now? You can message directly on WhatsApp or drop an email. No automated phone trees or corporate delays.
+              </p>
+
+              <div class="info-items">
+                <!-- Info Item 1: Founder -->
+                <div class="info-item founder-contact-item">
+                  <div class="founder-mini-thumb">
+                    <img src="/assets/founder-yash-pawar.jpg" alt="Yash Pawar - Founder & Lead Developer" class="mini-thumb-img" width="42" height="42" loading="lazy">
+                    <span class="mini-status-dot" title="Available for Projects"></span>
+                  </div>
+                  <div class="info-meta">
+                    <span class="meta-label">Founder & Lead Engineer</span>
+                    <span class="meta-value">Yash Pawar</span>
+                  </div>
+                </div>
+
+                <!-- Info Item 2: Email -->
+                <a href="mailto:pawaryash0711@gmail.com" class="info-item interactive-item">
+                  <div class="info-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                  </div>
+                  <div class="info-meta">
+                    <span class="meta-label">Email Address</span>
+                    <span class="meta-value">pawaryash0711@gmail.com</span>
+                  </div>
+                </a>
+
+                <!-- Info Item 3: Phone / WhatsApp -->
+                <a href="https://wa.me/919356047461?text=Hello%20Yash,%20I'm%20contacting%20you%20via%20Cloudy%20Success%20website." target="_blank" rel="noopener noreferrer" class="info-item interactive-item">
+                  <div class="info-icon whatsapp-accent">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                  </div>
+                  <div class="info-meta">
+                    <span class="meta-label">Phone & WhatsApp Direct</span>
+                    <span class="meta-value">+91 93560 47461</span>
+                  </div>
+                </a>
+
+                <!-- Info Item 4: Brand Location -->
+                <div class="info-item">
+                  <div class="info-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                  </div>
+                  <div class="info-meta">
+                    <span class="meta-label">Studio & Service Reach</span>
+                    <span class="meta-value">Cloudy Success • India & Worldwide Clients</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Instant WhatsApp Quick Handoff -->
+              <div class="quick-whatsapp-box">
+                <p class="quick-text">Need immediate answers? Start a direct WhatsApp chat:</p>
+                <a href="https://wa.me/919356047461?text=Hello%20Yash,%20I'd%20like%20to%20discuss%20a%20project%20for%20my%20business." target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp w-full single-line-btn">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                  <span>Chat on WhatsApp</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Contact Form Column -->
+          <div class="contact-form-col reveal-fade-up" data-delay="150">
+            <div class="contact-form-card glass-panel">
+              
+              <div class="form-header">
+                <h3 class="form-title">Send a Project Enquiry</h3>
+                <p class="form-subtitle">Fill in your requirements below. You can send directly via WhatsApp or Email.</p>
+              </div>
+
+              <!-- Actual Functional Form with Validation -->
+              <form id="project-enquiry-form" class="enquiry-form" novalidate>
+                
+                <!-- Row 1: Name & Email -->
+                <div class="form-row">
+                  <div class="form-field" id="field-name">
+                    <label for="input-name" class="field-label">Full Name <span class="required-star">*</span></label>
+                    <input type="text" id="input-name" name="name" class="form-input" placeholder="e.g. Alex Johnson" required autocomplete="name">
+                    <span class="field-error" id="error-name" aria-live="polite"></span>
+                  </div>
+
+                  <div class="form-field" id="field-email">
+                    <label for="input-email" class="field-label">Email Address <span class="required-star">*</span></label>
+                    <input type="email" id="input-email" name="email" class="form-input" placeholder="alex@company.com" required autocomplete="email">
+                    <span class="field-error" id="error-email" aria-live="polite"></span>
+                  </div>
+                </div>
+
+                <!-- Row 2: Phone & Service -->
+                <div class="form-row">
+                  <div class="form-field" id="field-phone">
+                    <label for="input-phone" class="field-label">Phone / WhatsApp Number <span class="required-star">*</span></label>
+                    <input type="tel" id="input-phone" name="phone" class="form-input" placeholder="+91 98765 43210" required autocomplete="tel">
+                    <span class="field-error" id="error-phone" aria-live="polite"></span>
+                  </div>
+
+                  <div class="form-field" id="field-service">
+                    <label for="select-service" class="field-label">Required Service <span class="required-star">*</span></label>
+                    <div class="select-wrapper">
+                      <select id="select-service" name="service" class="form-select" required>
+                        <option value="">Select a service...</option>
+                        <option value="Business Website Development">Business Website Development</option>
+                        <option value="E-commerce Website Development">E-commerce Website Development</option>
+                        <option value="Portfolio Websites">Portfolio Websites</option>
+                        <option value="Responsive Web Design">Responsive Web Design</option>
+                        <option value="UI/UX Design">UI/UX Design</option>
+                        <option value="Web Applications">Web Applications</option>
+                        <option value="Landing Pages">Landing Pages</option>
+                        <option value="Website Maintenance and Support">Website Maintenance and Support</option>
+                        <option value="Custom Project Scope">Custom Project Scope</option>
+                      </select>
+                      <svg class="select-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    </div>
+                    <span class="field-error" id="error-service" aria-live="polite"></span>
+                  </div>
+                </div>
+
+                <!-- Row 3: Budget Range -->
+                <div class="form-field" id="field-budget">
+                  <label for="select-budget" class="field-label">Estimated Budget</label>
+                  <div class="select-wrapper">
+                    <select id="select-budget" name="budget" class="form-select">
+                      <option value="Static Website (₹4,000)">Static Website (₹4,000)</option>
+                      <option value="Dynamic Website (₹8,000)" selected>Dynamic Website (₹8,000)</option>
+                      <option value="Scale / E-Commerce (₹15,000 – ₹30,000)">Scale / E-Commerce (₹15,000 – ₹30,000)</option>
+                      <option value="Enterprise / Web App (₹30,000+)">Enterprise / Web App (₹30,000+)</option>
+                      <option value="Not Sure Yet / Need Consultation">Not Sure Yet / Need Consultation</option>
+                    </select>
+                    <svg class="select-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                  </div>
+                </div>
+
+                <!-- Row 4: Project Description -->
+                <div class="form-field" id="field-message">
+                  <label for="textarea-message" class="field-label">Project Description & Goals <span class="required-star">*</span></label>
+                  <textarea id="textarea-message" name="message" class="form-textarea" rows="4" placeholder="Tell us about your brand, current website (if any), preferred style, timeline, and what features you need..." required></textarea>
+                  <span class="field-error" id="error-message" aria-live="polite"></span>
+                </div>
+
+                <!-- Submission Actions -->
+                <div class="form-submit-actions">
+                  <button type="submit" class="btn btn-primary btn-lg w-full" id="submit-form-btn">
+                    <span class="btn-text">Send Project Enquiry</span>
+                    <svg class="btn-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    <span class="spinner" id="form-spinner" aria-hidden="true"></span>
+                  </button>
+
+                  <div class="or-separator">
+                    <span>or send directly via</span>
+                  </div>
+
+                  <div class="fallback-actions-grid">
+                    <button type="button" class="btn btn-whatsapp-outline single-line-btn" id="send-whatsapp-direct-btn">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                      <span>Chat on WhatsApp</span>
+                    </button>
+                    <button type="button" class="btn btn-secondary" id="send-email-direct-btn">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                      <span>Open in Email Draft</span>
+                    </button>
+                  </div>
+                </div>
+
+                <!-- Privacy & Confidentiality notice -->
+                <p class="privacy-note">
+                  🔒 We respect your privacy. Your project idea and contact details are kept strictly confidential and never shared.
+                </p>
+
+              </form>
+
+              <!-- Success Card (Shown upon successful submission) -->
+              <div class="form-success-card" id="form-success-card" hidden>
+                <div class="success-icon-box">
+                  <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                </div>
+                <h4 class="success-title">Enquiry Ready & Transmitted!</h4>
+                <p class="success-message" id="success-message-text">
+                  Thank you! Your project details have been captured. A WhatsApp message draft and email fallback have been generated. Yash Pawar will review and contact you within 24 hours.
+                </p>
+                <div class="success-actions">
+                  <a href="#" id="success-whatsapp-link" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp">
+                    <span>Open in WhatsApp Now</span>
+                  </a>
+                  <button type="button" class="btn btn-secondary" id="reset-form-btn">
+                    <span>Send Another Enquiry</span>
+                  </button>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- ================================================================= -->
+  <!-- FOOTER                                                            -->
+  <!-- ================================================================= -->
+  <footer class="site-footer">
+    <div class="container footer-container">
+      
+      <div class="footer-top-grid">
+        
+        <!-- Brand Info -->
+        <div class="footer-brand-col">
+          <a href="#hero" class="nav-brand footer-logo">
+            <div class="brand-logo-icon">
+              <img src="/logo.svg" alt="Cloudy Success Logo" width="36" height="36">
+            </div>
+            <div class="brand-text">
+              <span class="brand-name">Cloudy<span class="text-cyan-400">Success</span></span>
+            </div>
+          </a>
+          <p class="footer-tagline">
+            Your Vision. Our Digital Solutions.
+          </p>
+          <p class="footer-bio">
+            A modern web development and digital solutions studio founded by <strong>Yash Pawar</strong>. Dedicated to building responsive, high-performing websites and web applications for ambitious businesses.
+          </p>
+          <div class="founder-badge">
+            <span>Founder & Lead: Yash Pawar</span>
+          </div>
+        </div>
+
+        <!-- Quick Nav Links -->
+        <div class="footer-links-col">
+          <h4 class="footer-heading">Navigation</h4>
+          <ul class="footer-links-list" role="list">
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#about">About Cloudy Success</a></li>
+            <li><a href="#services">Digital Services</a></li>
+            <li><a href="#portfolio">Featured Portfolio</a></li>
+            <li><a href="#process">4-Step Process</a></li>
+            <li><a href="#pricing">Pricing & Calculator</a></li>
+            <li><a href="#faq">Frequently Asked Questions</a></li>
+            <li><a href="#contact">Contact & Enquiry</a></li>
+          </ul>
+        </div>
+
+        <!-- Services Links -->
+        <div class="footer-links-col">
+          <h4 class="footer-heading">Services</h4>
+          <ul class="footer-links-list" role="list">
+            <li><a href="#services" class="footer-service-link" data-service="Business Website Development">Business Websites</a></li>
+            <li><a href="#services" class="footer-service-link" data-service="E-commerce Website Development">E-Commerce Stores</a></li>
+            <li><a href="#services" class="footer-service-link" data-service="Portfolio Websites">Portfolio Websites</a></li>
+            <li><a href="#services" class="footer-service-link" data-service="Responsive Web Design">Responsive Design</a></li>
+            <li><a href="#services" class="footer-service-link" data-service="UI/UX Design">UI/UX Design</a></li>
+            <li><a href="#services" class="footer-service-link" data-service="Web Applications">Web Applications</a></li>
+            <li><a href="#services" class="footer-service-link" data-service="Landing Pages">Landing Pages</a></li>
+            <li><a href="#services" class="footer-service-link" data-service="Website Maintenance and Support">Maintenance & Support</a></li>
+          </ul>
+        </div>
+
+        <!-- Direct Contact Col -->
+        <div class="footer-links-col">
+          <h4 class="footer-heading">Direct Connect</h4>
+          <ul class="footer-contact-list" role="list">
+            <li>
+              <a href="mailto:pawaryash0711@gmail.com" class="footer-contact-item">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                <span>pawaryash0711@gmail.com</span>
+              </a>
+            </li>
+            <li>
+              <a href="tel:+919356047461" class="footer-contact-item">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                <span>+91 93560 47461</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://wa.me/919356047461?text=Hello%20Yash,%20I'm%20contacting%20you%20via%20Cloudy%20Success." target="_blank" rel="noopener noreferrer" class="footer-contact-item">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                <span>WhatsApp: +91 93560 47461</span>
+              </a>
+            </li>
+          </ul>
+
+          <div class="footer-cta-box">
+            <span class="cta-label">Have an idea?</span>
+            <a href="#contact" class="btn btn-primary btn-sm w-full">Start a Project</a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="footer-bottom-bar">
+        <p class="copyright-text">
+          &copy; <span id="current-year">2026</span> <strong>Cloudy Success</strong>. All rights reserved. Founded & Engineered by <strong>Yash Pawar</strong>.
+        </p>
+        <div class="footer-compliance">
+          <span>Target Audience: Small Businesses, Startups, Shops, Restaurants, Professionals.</span>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+
+  <!-- ================================================================= -->
+  <!-- FLOATING WIDGETS: BACK TO TOP & QUICK WHATSAPP BUTTON             -->
+  <!-- ================================================================= -->
+  <div class="floating-controls" aria-label="Quick Access Controls">
+    
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/919356047461?text=Hello%20Yash,%20I'm%20contacting%20you%20via%20Cloudy%20Success." target="_blank" rel="noopener noreferrer" class="floating-btn whatsapp-floating" aria-label="Chat directly on WhatsApp">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+      <span class="tooltip-text">Quick WhatsApp</span>
+    </a>
+
+    <!-- Back to Top Button with SVG Circular Progress -->
+    <button type="button" class="floating-btn back-to-top-btn" id="back-to-top-btn" aria-label="Back to top of page">
+      <svg class="progress-ring" width="48" height="48" viewBox="0 0 48 48">
+        <circle class="progress-ring-bg" stroke="rgba(255, 255, 255, 0.1)" stroke-width="3" fill="transparent" r="20" cx="24" cy="24"/>
+        <circle class="progress-ring-circle" id="progress-circle" stroke="#38bdf8" stroke-width="3" stroke-dasharray="125.6" stroke-dashoffset="125.6" stroke-linecap="round" fill="transparent" r="20" cx="24" cy="24"/>
+      </svg>
+      <svg class="top-arrow-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"></polyline></svg>
+    </button>
+
+  </div>
+
+
+  <!-- ================================================================= -->
+  <!-- CASE STUDY DETAILS MODAL                                          -->
+  <!-- ================================================================= -->
+  <div class="project-modal" id="project-modal" role="dialog" aria-modal="true" aria-labelledby="modal-project-title" hidden>
+    <div class="modal-backdrop" id="modal-backdrop"></div>
+    <div class="modal-dialog glass-panel">
+      
+      <button type="button" class="modal-close-btn" id="modal-close-btn" aria-label="Close project modal">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+
+      <div class="modal-body">
+        <div class="modal-image-wrapper">
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 450'%3E%3Crect width='800' height='450' fill='%23070e1e'/%3E%3C/svg%3E" alt="Project Showcase Preview" id="modal-project-image" class="modal-img" width="800" height="450">
+          <div class="modal-badge" id="modal-project-badge">Agency Concept</div>
+        </div>
+
+        <div class="modal-info">
+          <div class="modal-meta-row">
+            <span class="modal-category" id="modal-project-category">Corporate Business</span>
+            <span class="modal-year">2026 Production Standard</span>
+          </div>
+
+          <h3 class="modal-title" id="modal-project-title">Project Name</h3>
+          <p class="modal-desc" id="modal-project-desc">Project comprehensive description goes here.</p>
+
+          <div class="modal-highlights-box">
+            <h4 class="highlights-title">Key Architectural Highlights:</h4>
+            <ul class="highlights-list" id="modal-project-highlights" role="list">
+              <!-- Dynamically populated -->
+            </ul>
+          </div>
+
+          <div class="modal-tech-stack" id="modal-project-tech">
+            <!-- Tech pills -->
+          </div>
+
+          <div class="modal-actions">
+            <a href="#contact" class="btn btn-primary" id="modal-discuss-btn">
+              <span>Build Something Similar</span>
+              <svg class="btn-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <button type="button" class="btn btn-secondary" id="modal-dismiss-btn">
+              <span>Close Preview</span>
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>
