@@ -1203,6 +1203,11 @@
               <form id="project-enquiry-form" class="enquiry-form" novalidate>
                 {% csrf_token %}
                 
+                <!-- Anti-Spam Bot Honeypot Security Field (Invisible to human users) -->
+                <div style="display:none !important; position:absolute; left:-9999px;" aria-hidden="true">
+                  <input type="text" name="website_url_hp" id="website_url_hp" tabindex="-1" autocomplete="off">
+                </div>
+                
                 <!-- Row 1: Name & Email -->
                 <div class="form-row">
                   <div class="form-field" id="field-name">

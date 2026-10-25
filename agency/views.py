@@ -273,29 +273,66 @@ def api_pricing_list(request):
 @csrf_exempt
 @require_POST
 def api_submit_enquiry(request):
+    """
+    Secure Enquiry Endpoint:
+    - Verifies request origin (Anti-CSRF)
+    - IP Rate Limiting (Anti-DoS / Anti-Spam)
+    - Honeypot Bot Detection
+    - Deep Input Sanitization (Anti-XSS / Anti-Injection)
+    - Strict Email & Phone Format Validation
+    """
     try:
+        # 1. Origin verification
+        if not verify_request_origin(request):
+            return JsonResponse({'success': False, 'error': 'Forbidden request origin.'}, status=403)
+
+        # 2. Extract Client IP and enforce rate limiting (max 5 per 10 mins)
+        client_ip = get_client_ip(request)
+        if check_enquiry_rate_limit(client_ip):
+            return JsonResponse({
+                'success': False,
+                'error': 'Too many submissions detected from your IP. For security reasons, please wait a few minutes before submitting another enquiry.'
+            }, status=429)
+
+        # 3. Parse payload
         if request.content_type == 'application/json':
             data = json.loads(request.body.decode('utf-8'))
         else:
             data = request.POST
 
-        name = data.get('name', '').strip()
-        email = data.get('email', '').strip()
-        phone = data.get('phone', '').strip()
-        service = data.get('service', 'Business Website Development')
-        budget = data.get('budget', '')
-        message = data.get('message', '').strip()
+        # 4. Anti-Bot Honeypot: Drop silently if bot filled hidden field
+        if is_bot_honeypot_triggered(data):
+            return JsonResponse({
+                'success': True,
+                'message': 'Your project enquiry has been securely received by Cloudy Success! Yash Pawar will reach out within 24 hours.'
+            })
 
-        if not name or not email or not phone or not message:
-            return JsonResponse({'success': False, 'error': 'All required fields must be filled.'}, status=400)
+        # 5. Sanitize text fields (Anti-XSS, HTML strip, length clamping)
+        raw_name = data.get('name', '')
+        raw_email = data.get('email', '')
+        raw_phone = data.get('phone', '')
+        raw_service = data.get('service', 'Business Website Development')
+        raw_budget = data.get('budget', '')
+        raw_message = data.get('message', '')
 
-        # Get IP address
-        x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
-        if x_forwarded_for:
-            ip = x_forwarded_for.split(',')[0]
-        else:
-            ip = request.META.get('REMOTE_ADDR')
+        name = sanitize_text(raw_name, max_length=100)
+        service = sanitize_text(raw_service, max_length=100)
+        budget = sanitize_text(raw_budget, max_length=100)
+        message = sanitize_text(raw_message, max_length=3000)
 
+        # 6. Strict validation checks
+        if not name or not raw_email or not raw_phone or not message:
+            return JsonResponse({'success': False, 'error': 'All required fields (Name, Email, Phone, Message) must be filled.'}, status=400)
+
+        is_valid_email, email = validate_email_address(raw_email)
+        if not is_valid_email:
+            return JsonResponse({'success': False, 'error': 'Please provide a valid email address (e.g. yourname@domain.com).'}, status=400)
+
+        is_valid_phone, phone = validate_phone_number(raw_phone)
+        if not is_valid_phone:
+            return JsonResponse({'success': False, 'error': 'Please provide a valid phone or WhatsApp number.'}, status=400)
+
+        # 7. Secure parameterized DB insert via Django ORM (100% SQL-injection proof)
         enquiry = ProjectEnquiry.objects.create(
             name=name,
             email=email,
@@ -303,7 +340,7 @@ def api_submit_enquiry(request):
             service=service,
             budget=budget,
             message=message,
-            ip_address=ip
+            ip_address=client_ip
         )
 
         return JsonResponse({
@@ -312,24 +349,49 @@ def api_submit_enquiry(request):
             'message': 'Your project enquiry has been securely received by Cloudy Success! Yash Pawar will reach out within 24 hours.'
         })
 
-    except Exception as e:
-        return JsonResponse({'success': False, 'error': str(e)}, status=500)
+    except json.JSONDecodeError:
+        return JsonResponse({'success': False, 'error': 'Malformed request payload.'}, status=400)
+    except Exception:
+        # Never leak stack trace or internal database error messages to clients
+        return JsonResponse({'success': False, 'error': 'A secure system error occurred. Please try again or reach out via WhatsApp.'}, status=500)
 
 
 @csrf_exempt
 @require_POST
 def api_submit_quote(request):
+    """
+    Secure Quote Calculation Endpoint:
+    - Verifies request origin
+    - IP Rate Limiting (max 15 per 10 mins)
+    - Validates integer bounds & sanitizes inputs
+    """
     try:
+        if not verify_request_origin(request):
+            return JsonResponse({'success': False, 'error': 'Forbidden request origin.'}, status=403)
+
+        client_ip = get_client_ip(request)
+        if check_quote_rate_limit(client_ip):
+            return JsonResponse({
+                'success': False,
+                'error': 'Rate limit exceeded. Please wait a moment before calculating more estimates.'
+            }, status=429)
+
         if request.content_type == 'application/json':
             data = json.loads(request.body.decode('utf-8'))
         else:
             data = request.POST
 
-        project_type = data.get('type', 'Business Website')
-        pages = int(data.get('pages', 5))
-        addons = data.get('addons', '')
-        low_estimate = int(data.get('lowEstimate', 0))
-        high_estimate = int(data.get('highEstimate', 0))
+        # Sanitize and validate inputs
+        project_type = sanitize_text(data.get('type', 'Business Website'), max_length=80)
+        addons = sanitize_text(data.get('addons', ''), max_length=200)
+
+        try:
+            pages = max(1, min(100, int(data.get('pages', 5))))
+            low_estimate = max(0, min(10000000, int(data.get('lowEstimate', 0))))
+            high_estimate = max(0, min(10000000, int(data.get('highEstimate', 0))))
+        except (ValueError, TypeError):
+            return JsonResponse({'success': False, 'error': 'Invalid calculation values.'}, status=400)
+
         whatsapp_clicked = bool(data.get('whatsappClicked', False))
 
         quote = QuoteCalculation.objects.create(
@@ -343,8 +405,10 @@ def api_submit_quote(request):
 
         return JsonResponse({'success': True, 'quote_id': quote.id})
 
-    except Exception as e:
-        return JsonResponse({'success': False, 'error': str(e)}, status=500)
+    except json.JSONDecodeError:
+        return JsonResponse({'success': False, 'error': 'Malformed request payload.'}, status=400)
+    except Exception:
+        return JsonResponse({'success': False, 'error': 'Unable to calculate quote securely.'}, status=500)
 
 
 @require_GET

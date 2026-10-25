@@ -3,16 +3,17 @@ Django settings for Cloudy Success project.
 Founded by Yash Pawar | pawaryash0711@gmail.com
 """
 
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-cloudy-success-yash-pawar-secret-key-2026'
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'django-hardened-cloudy-success-yash-pawar-key-2026-secure')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get('DJANGO_DEBUG', 'True').lower() in ('true', '1', 'yes')
 
 ALLOWED_HOSTS = ['*']
 
@@ -28,6 +29,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'cloudysuccess_app.middleware.HardenedSecurityMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -98,3 +100,26 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# ==============================================================================
+# ENTERPRISE SECURITY & ANTI-HACK HARDENING SETTINGS
+# ==============================================================================
+# Anti-Clickjacking: Disallows rendering in iframes
+X_FRAME_OPTIONS = 'DENY'
+
+# Anti-MIME Sniffing
+SECURE_CONTENT_TYPE_NOSNIFF = True
+
+# Browser XSS Filtering
+SECURE_BROWSER_XSS_FILTER = True
+
+# Cookie Security & Anti-Session Hijacking
+SESSION_COOKIE_HTTPONLY = True
+SESSION_COOKIE_SAMESITE = 'Lax'
+CSRF_COOKIE_HTTPONLY = False
+CSRF_COOKIE_SAMESITE = 'Lax'
+
+# Data payload limit: Max 2.5MB to prevent memory exhaustion DDoS attacks
+DATA_UPLOAD_MAX_MEMORY_SIZE = 2621440
+FILE_UPLOAD_MAX_MEMORY_SIZE = 2621440
+
