@@ -4377,3 +4377,813 @@ ul, ol {
   }
 }
 
+/* ==========================================================================
+   27. COMPREHENSIVE WHITE / LIGHT THEME PROFESSIONAL COLOR & CONTRAST
+   ========================================================================== */
+[data-theme="light"] {
+  --navy-950: #f8fafc;
+  --navy-900: #ffffff;
+  --navy-850: #f1f5f9;
+  --navy-800: #e2e8f0;
+  --navy-700: #cbd5e1;
+  --electric-blue: #0284c7;
+  --electric-blue-hover: #0369a1;
+  --electric-blue-glow: rgba(2, 132, 199, 0.2);
+  --cyan-400: #0284c7;
+  --cyan-500: #0369a1;
+  --cyan-glow: rgba(2, 132, 199, 0.15);
+  --text-white: #0f172a;
+  --text-light: #1e293b;
+  --text-muted: #475569;
+  --text-dim: #64748b;
+  --glass-bg: #ffffff;
+  --glass-border: #e2e8f0;
+  --glass-border-hover: #0284c7;
+  --glass-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.06), 0 2px 6px -1px rgba(15, 23, 42, 0.03);
+}
+
+[data-theme="light"] body {
+  background-color: #f8fafc !important;
+  color: #334155 !important;
+}
+
+/* Headings & High-Contrast Titles */
+[data-theme="light"] h1,
+[data-theme="light"] h2,
+[data-theme="light"] h3,
+[data-theme="light"] h4,
+[data-theme="light"] h5,
+[data-theme="light"] h6,
+[data-theme="light"] .section-title,
+[data-theme="light"] .hero-title,
+[data-theme="light"] .about-card-title,
+[data-theme="light"] .pillar-title,
+[data-theme="light"] .founder-name,
+[data-theme="light"] .service-title,
+[data-theme="light"] .project-title,
+[data-theme="light"] .step-title,
+[data-theme="light"] .package-name,
+[data-theme="light"] .amount,
+[data-theme="light"] .calc-title,
+[data-theme="light"] .calc-group-title,
+[data-theme="light"] .guarantee-title,
+[data-theme="light"] .invitation-title,
+[data-theme="light"] .faq-question,
+[data-theme="light"] .form-title,
+[data-theme="light"] .success-title,
+[data-theme="light"] .footer-heading,
+[data-theme="light"] .modal-title,
+[data-theme="light"] .highlights-title {
+  color: #0f172a !important;
+}
+
+/* Body Text, Subtitles & Descriptions */
+[data-theme="light"] p,
+[data-theme="light"] .section-subtitle,
+[data-theme="light"] .hero-description,
+[data-theme="light"] .about-text,
+[data-theme="light"] .pillar-desc,
+[data-theme="light"] .service-desc,
+[data-theme="light"] .project-summary,
+[data-theme="light"] .step-desc,
+[data-theme="light"] .package-for,
+[data-theme="light"] .calc-desc,
+[data-theme="light"] .guarantee-desc,
+[data-theme="light"] .invitation-desc,
+[data-theme="light"] .faq-answer-inner,
+[data-theme="light"] .form-subtitle,
+[data-theme="light"] .success-message,
+[data-theme="light"] .footer-bio,
+[data-theme="light"] .modal-desc {
+  color: #475569 !important;
+}
+
+[data-theme="light"] strong {
+  color: #0f172a !important;
+}
+
+/* Section Tags & Pills */
+[data-theme="light"] .section-tag,
+[data-theme="light"] .story-badge,
+[data-theme="light"] .calc-badge {
+  background: #e0f2fe !important;
+  border: 1px solid #bae6fd !important;
+  color: #0369a1 !important;
+  font-weight: 700 !important;
+}
+
+/* Gradient Text for Light Theme */
+[data-theme="light"] .gradient-text {
+  background: linear-gradient(135deg, #0f172a 0%, #0284c7 50%, #2563eb 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+/* Glass Panels & Modern White Cards */
+[data-theme="light"] .glass-panel {
+  background: #ffffff !important;
+  border: 1px solid #e2e8f0 !important;
+  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05), 0 2px 6px -1px rgba(15, 23, 42, 0.03) !important;
+}
+
+[data-theme="light"] .glass-panel:hover {
+  border-color: #0284c7 !important;
+  box-shadow: 0 12px 30px -5px rgba(2, 132, 199, 0.12), 0 4px 10px -2px rgba(15, 23, 42, 0.04) !important;
+}
+
+/* Header & Brand in Light Theme */
+[data-theme="light"] .site-header {
+  background-color: rgba(255, 255, 255, 0.98) !important;
+  border-bottom: 1px solid #e2e8f0 !important;
+  box-shadow: 0 2px 14px rgba(15, 23, 42, 0.06) !important;
+}
+
+[data-theme="light"] .brand-name {
+  color: #0f172a !important;
+}
+
+[data-theme="light"] .brand-logo-icon {
+  background: linear-gradient(135deg, #e0f2fe, #bae6fd) !important;
+  border: 1.5px solid #38bdf8 !important;
+  box-shadow: 0 2px 8px rgba(2, 132, 199, 0.15) !important;
+}
+
+[data-theme="light"] .nav-link {
+  color: #475569 !important;
+  font-weight: 600 !important;
+}
+
+[data-theme="light"] .nav-link:hover,
+[data-theme="light"] .nav-link.active {
+  color: #0284c7 !important;
+}
+
+[data-theme="light"] .theme-toggle-btn {
+  background: #f1f5f9 !important;
+  border: 1px solid #cbd5e1 !important;
+  color: #0f172a !important;
+}
+
+[data-theme="light"] .theme-toggle-btn:hover {
+  background: #e0f2fe !important;
+  border-color: #0284c7 !important;
+  color: #0284c7 !important;
+}
+
+[data-theme="light"] .mobile-menu-btn {
+  background: #f1f5f9 !important;
+  border: 1px solid #cbd5e1 !important;
+}
+
+[data-theme="light"] .hamburger-inner,
+[data-theme="light"] .hamburger-inner::before,
+[data-theme="light"] .hamburger-inner::after {
+  background-color: #0f172a !important;
+}
+
+/* Hero Section Components in Light Mode */
+[data-theme="light"] .hero-badge-live {
+  background: #e0f2fe !important;
+  border-color: #bae6fd !important;
+  color: #0369a1 !important;
+}
+
+[data-theme="light"] .hero-stats-strip {
+  background: #ffffff !important;
+  border: 1px solid #e2e8f0 !important;
+  box-shadow: 0 8px 24px -4px rgba(15, 23, 42, 0.06) !important;
+}
+
+[data-theme="light"] .stat-number-wrapper {
+  color: #0f172a !important;
+}
+
+[data-theme="light"] .stat-label {
+  color: #64748b !important;
+  font-weight: 600 !important;
+}
+
+[data-theme="light"] .stat-separator {
+  background-color: #e2e8f0 !important;
+}
+
+[data-theme="light"] .trust-title {
+  color: #64748b !important;
+  font-weight: 600 !important;
+}
+
+[data-theme="light"] .trust-pill {
+  background: #ffffff !important;
+  border: 1px solid #cbd5e1 !important;
+  color: #334155 !important;
+  font-weight: 600 !important;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04) !important;
+}
+
+[data-theme="light"] .trust-pill:hover {
+  background: #f0f9ff !important;
+  border-color: #0284c7 !important;
+  color: #0284c7 !important;
+}
+
+/* About & Founder Spotlight */
+[data-theme="light"] .founder-quote {
+  background: #f8fafc !important;
+  border-left: 4px solid #0284c7 !important;
+  border-top: 1px solid #e2e8f0 !important;
+  border-right: 1px solid #e2e8f0 !important;
+  border-bottom: 1px solid #e2e8f0 !important;
+}
+
+[data-theme="light"] .founder-quote p {
+  color: #334155 !important;
+}
+
+[data-theme="light"] .channel-link {
+  background: #f8fafc !important;
+  border: 1px solid #e2e8f0 !important;
+}
+
+[data-theme="light"] .channel-link:hover {
+  background: #f0f9ff !important;
+  border-color: #0284c7 !important;
+}
+
+[data-theme="light"] .channel-label {
+  color: #64748b !important;
+}
+
+[data-theme="light"] .channel-val {
+  color: #0f172a !important;
+}
+
+[data-theme="light"] .pillars-list {
+  border-top-color: #e2e8f0 !important;
+}
+
+/* Services */
+[data-theme="light"] .service-icon-box {
+  background: #e0f2fe !important;
+  border-color: #bae6fd !important;
+  color: #0284c7 !important;
+}
+
+[data-theme="light"] .service-features li {
+  color: #334155 !important;
+  font-weight: 500 !important;
+}
+
+[data-theme="light"] .service-card-footer {
+  border-top-color: #e2e8f0 !important;
+}
+
+[data-theme="light"] .service-enquire-btn {
+  color: #0284c7 !important;
+  font-weight: 700 !important;
+}
+
+/* Portfolio */
+[data-theme="light"] .filter-btn {
+  background: #ffffff !important;
+  border: 1px solid #cbd5e1 !important;
+  color: #475569 !important;
+  font-weight: 600 !important;
+}
+
+[data-theme="light"] .filter-btn:hover {
+  background: #f1f5f9 !important;
+  color: #0f172a !important;
+  border-color: #94a3b8 !important;
+}
+
+[data-theme="light"] .filter-btn.active {
+  background: #0284c7 !important;
+  border-color: #0284c7 !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 14px rgba(2, 132, 199, 0.3) !important;
+}
+
+[data-theme="light"] .concept-badge {
+  background: rgba(255, 255, 255, 0.94) !important;
+  border-color: #cbd5e1 !important;
+  color: #0284c7 !important;
+}
+
+[data-theme="light"] .project-category {
+  color: #0284c7 !important;
+  font-weight: 700 !important;
+}
+
+[data-theme="light"] .project-tag {
+  background: #f1f5f9 !important;
+  border: 1px solid #e2e8f0 !important;
+  color: #334155 !important;
+  font-weight: 600 !important;
+}
+
+/* Process Section (Discovery to Live Deployment) */
+[data-theme="light"] .process-step .step-badge {
+  background: #f0f9ff !important;
+  border-color: #bae6fd !important;
+}
+
+[data-theme="light"] .process-step .step-num {
+  color: #0284c7 !important;
+  font-weight: 800 !important;
+  opacity: 1 !important;
+}
+
+[data-theme="light"] .process-step .step-phase {
+  color: #0369a1 !important;
+  font-weight: 700 !important;
+}
+
+[data-theme="light"] .process-step .step-deliverables {
+  border-top-color: #e2e8f0 !important;
+}
+
+[data-theme="light"] .process-step .step-deliverables li {
+  color: #334155 !important;
+  font-weight: 500 !important;
+}
+
+/* Pricing & Quote Calculator */
+[data-theme="light"] .pricing-header {
+  border-bottom-color: #e2e8f0 !important;
+}
+
+[data-theme="light"] .package-price .amount {
+  color: #0f172a !important;
+}
+
+[data-theme="light"] .package-price .currency {
+  color: #0284c7 !important;
+}
+
+[data-theme="light"] .package-features li {
+  color: #334155 !important;
+  font-weight: 500 !important;
+}
+
+[data-theme="light"] .popular-tier {
+  background: linear-gradient(180deg, #ffffff 0%, #f0f9ff 100%) !important;
+  border: 2px solid #0284c7 !important;
+  box-shadow: 0 16px 36px -10px rgba(2, 132, 199, 0.18) !important;
+}
+
+[data-theme="light"] .quote-calculator-box {
+  background: #ffffff !important;
+  border: 1px solid #cbd5e1 !important;
+  box-shadow: 0 10px 30px -5px rgba(15, 23, 42, 0.08) !important;
+}
+
+[data-theme="light"] .addon-pill {
+  background: #f8fafc !important;
+  border: 1px solid #e2e8f0 !important;
+}
+
+[data-theme="light"] .addon-text {
+  color: #334155 !important;
+  font-weight: 500 !important;
+}
+
+[data-theme="light"] .calculator-result-bar {
+  background: #f8fafc !important;
+  border: 1px solid #e2e8f0 !important;
+}
+
+[data-theme="light"] .result-label {
+  color: #64748b !important;
+  font-weight: 700 !important;
+}
+
+[data-theme="light"] .result-cost {
+  color: #0284c7 !important;
+}
+
+[data-theme="light"] .result-disclaimer {
+  color: #64748b !important;
+}
+
+/* Guarantees */
+[data-theme="light"] .guarantee-icon {
+  background: #f0f9ff !important;
+  border: 1px solid #bae6fd !important;
+  color: #0284c7 !important;
+}
+
+[data-theme="light"] .testimonial-invitation {
+  background: #ffffff !important;
+  border: 1px solid #e2e8f0 !important;
+}
+
+/* FAQ */
+[data-theme="light"] .faq-item {
+  background: #ffffff !important;
+  border: 1px solid #e2e8f0 !important;
+}
+
+[data-theme="light"] .faq-item.is-open {
+  border-color: #0284c7 !important;
+}
+
+[data-theme="light"] .faq-question {
+  background: #ffffff !important;
+  color: #0f172a !important;
+}
+
+[data-theme="light"] .faq-question:hover {
+  color: #0284c7 !important;
+}
+
+[data-theme="light"] .faq-chevron {
+  color: #0284c7 !important;
+}
+
+[data-theme="light"] .faq-answer-inner {
+  color: #475569 !important;
+}
+
+/* Contact & Enquiry Forms */
+[data-theme="light"] .form-label,
+[data-theme="light"] .field-label {
+  color: #0f172a !important;
+  font-weight: 600 !important;
+}
+
+[data-theme="light"] .form-input,
+[data-theme="light"] .form-select,
+[data-theme="light"] .form-textarea {
+  background: #ffffff !important;
+  border: 1px solid #cbd5e1 !important;
+  color: #0f172a !important;
+}
+
+[data-theme="light"] .form-input:focus,
+[data-theme="light"] .form-select:focus,
+[data-theme="light"] .form-textarea:focus {
+  border-color: #0284c7 !important;
+  box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.15) !important;
+  background: #ffffff !important;
+}
+
+[data-theme="light"] .or-separator::before,
+[data-theme="light"] .or-separator::after {
+  border-bottom-color: #e2e8f0 !important;
+}
+
+[data-theme="light"] .or-separator {
+  color: #64748b !important;
+}
+
+[data-theme="light"] .quick-whatsapp-box {
+  border-top-color: #e2e8f0 !important;
+}
+
+[data-theme="light"] .quick-text {
+  color: #475569 !important;
+}
+
+/* Footer in Light Mode */
+[data-theme="light"] .site-footer {
+  background: #ffffff !important;
+  border-top: 1px solid #e2e8f0 !important;
+}
+
+[data-theme="light"] .footer-tagline {
+  color: #0284c7 !important;
+}
+
+[data-theme="light"] .footer-bio {
+  color: #475569 !important;
+}
+
+[data-theme="light"] .footer-links-list a {
+  color: #475569 !important;
+}
+
+[data-theme="light"] .footer-links-list a:hover {
+  color: #0284c7 !important;
+}
+
+[data-theme="light"] .founder-badge {
+  background: #f1f5f9 !important;
+  border: 1px solid #e2e8f0 !important;
+  color: #334155 !important;
+}
+
+[data-theme="light"] .footer-contact-item a {
+  color: #334155 !important;
+}
+
+[data-theme="light"] .footer-bottom {
+  border-top-color: #e2e8f0 !important;
+  color: #64748b !important;
+}
+
+/* Modals in Light Mode */
+[data-theme="light"] .project-modal .modal-dialog {
+  background: #ffffff !important;
+  border: 1px solid #cbd5e1 !important;
+}
+
+[data-theme="light"] .modal-highlights-box {
+  background: #f8fafc !important;
+  border: 1px solid #e2e8f0 !important;
+}
+
+[data-theme="light"] .highlights-title {
+  color: #0f172a !important;
+}
+
+[data-theme="light"] .highlights-list li {
+  color: #475569 !important;
+}
+
+[data-theme="light"] .modal-close-btn {
+  color: #0f172a !important;
+  background: #f1f5f9 !important;
+  border: 1px solid #cbd5e1 !important;
+}
+
+[data-theme="light"] .modal-close-btn:hover {
+  background: #e2e8f0 !important;
+  color: #0284c7 !important;
+}
+
+/* ==========================================================================
+   28. MOBILE RESPONSIVE OVERHAUL (max-width: 768px)
+   ========================================================================== */
+@media (max-width: 768px) {
+  /* Header: Logo bold on Left, Actions aligned on Right */
+  .site-header {
+    height: 64px !important;
+  }
+
+  .nav-container {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    padding: 0 16px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .nav-brand {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+    text-decoration: none !important;
+    flex-shrink: 0 !important;
+  }
+
+  .brand-logo-icon {
+    width: 36px !important;
+    height: 36px !important;
+    border-radius: 10px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex-shrink: 0 !important;
+  }
+
+  .brand-logo-icon img {
+    width: 22px !important;
+    height: 22px !important;
+  }
+
+  .brand-name {
+    font-size: 1.25rem !important;
+    font-weight: 800 !important;
+    letter-spacing: -0.02em !important;
+    line-height: 1 !important;
+    white-space: nowrap !important;
+  }
+
+  .brand-badge {
+    display: none !important;
+  }
+
+  .nav-actions {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    gap: 10px !important;
+    margin-left: auto !important;
+    flex-shrink: 0 !important;
+  }
+
+  .theme-toggle-btn {
+    width: 40px !important;
+    height: 40px !important;
+    border-radius: 10px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex-shrink: 0 !important;
+  }
+
+  .mobile-menu-btn {
+    width: 40px !important;
+    height: 40px !important;
+    border-radius: 10px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex-shrink: 0 !important;
+  }
+
+  #nav-cta-btn {
+    display: none !important;
+  }
+
+  /* "From Discovery to Live Deployment" Process Step Cards (Mobile) */
+  .process-timeline {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+  }
+
+  .process-step {
+    display: grid !important;
+    grid-template-columns: 46px minmax(0, 1fr) !important;
+    column-gap: 14px !important;
+    row-gap: 8px !important;
+    align-items: start !important;
+    text-align: left !important;
+    padding: 16px !important;
+    border-radius: var(--radius-md) !important;
+  }
+
+  .process-step .step-badge {
+    grid-column: 1 !important;
+    grid-row: 1 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 4px !important;
+    margin: 0 !important;
+    padding: 8px 4px !important;
+    border-radius: 10px !important;
+    background: rgba(56, 189, 248, 0.08) !important;
+    border: 1px solid rgba(56, 189, 248, 0.22) !important;
+    width: 46px !important;
+    box-sizing: border-box !important;
+  }
+
+  .process-step .step-num {
+    font-size: 1.15rem !important;
+    font-weight: 800 !important;
+    line-height: 1 !important;
+  }
+
+  .process-step .step-icon {
+    font-size: 1.25rem !important;
+    line-height: 1 !important;
+  }
+
+  .process-step .step-content {
+    grid-column: 2 !important;
+    grid-row: 1 !important;
+    min-width: 0 !important;
+  }
+
+  .process-step .step-phase {
+    font-size: 0.7rem !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.08em !important;
+    margin-bottom: 2px !important;
+  }
+
+  .process-step .step-title {
+    font-size: 1.05rem !important;
+    font-weight: 700 !important;
+    line-height: 1.25 !important;
+    margin-bottom: 6px !important;
+  }
+
+  .process-step .step-desc {
+    font-size: 0.82rem !important;
+    line-height: 1.45 !important;
+    margin-bottom: 6px !important;
+  }
+
+  .process-step .step-deliverables {
+    grid-column: 1 / -1 !important;
+    padding-top: 10px !important;
+    margin-top: 2px !important;
+    gap: 5px !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+  }
+
+  .process-step .step-deliverables li {
+    font-size: 0.76rem !important;
+    line-height: 1.35 !important;
+  }
+
+  /* Services Cards (Mobile) */
+  .services-grid {
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+  }
+
+  .service-card {
+    display: grid !important;
+    grid-template-columns: 46px minmax(0, 1fr) !important;
+    column-gap: 14px !important;
+    row-gap: 8px !important;
+    align-items: start !important;
+    text-align: left !important;
+    padding: 16px !important;
+    border-radius: var(--radius-md) !important;
+  }
+
+  .service-icon-box {
+    grid-column: 1 !important;
+    grid-row: 1 !important;
+    width: 46px !important;
+    height: 46px !important;
+    margin: 0 !important;
+    border-radius: 10px !important;
+    font-size: 1.3rem !important;
+  }
+
+  .service-title {
+    grid-column: 2 !important;
+    grid-row: 1 !important;
+    font-size: 1.05rem !important;
+    font-weight: 700 !important;
+    line-height: 1.25 !important;
+    margin-bottom: 4px !important;
+  }
+
+  .service-desc {
+    grid-column: 2 !important;
+    font-size: 0.82rem !important;
+    line-height: 1.45 !important;
+    margin-bottom: 6px !important;
+  }
+
+  .service-features {
+    grid-column: 1 / -1 !important;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 6px !important;
+    margin-bottom: 8px !important;
+  }
+
+  .service-card-footer {
+    grid-column: 1 / -1 !important;
+    padding-top: 10px !important;
+    margin-top: 0 !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+  }
+
+  /* Guarantee Cards (Mobile) */
+  .guarantees-grid {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+  }
+
+  .guarantee-card {
+    display: grid !important;
+    grid-template-columns: 46px minmax(0, 1fr) !important;
+    column-gap: 14px !important;
+    align-items: start !important;
+    text-align: left !important;
+    padding: 16px !important;
+    border-radius: var(--radius-md) !important;
+  }
+
+  .guarantee-icon {
+    grid-column: 1 !important;
+    grid-row: 1 / span 2 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 46px !important;
+    height: 46px !important;
+    margin: 0 !important;
+    border-radius: 10px !important;
+    font-size: 1.4rem !important;
+    line-height: 1 !important;
+    background: rgba(56, 189, 248, 0.08) !important;
+    border: 1px solid rgba(56, 189, 248, 0.2) !important;
+  }
+
+  .guarantee-title {
+    grid-column: 2 !important;
+    font-size: 1.02rem !important;
+    font-weight: 700 !important;
+    line-height: 1.25 !important;
+    margin-bottom: 4px !important;
+  }
+
+  .guarantee-desc {
+    grid-column: 2 !important;
+    font-size: 0.82rem !important;
+    line-height: 1.45 !important;
+  }
+}
+

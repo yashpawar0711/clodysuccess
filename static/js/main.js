@@ -4,7 +4,7 @@
  * Tagline: Your Vision. Our Digital Solutions.
  */
 
-import confetti from 'canvas-confetti';
+const confetti = window.confetti;
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -1158,4 +1158,3 @@ Sent via cloudy-success.com`;
   hydrateDynamicPricing();
 
 });
-
