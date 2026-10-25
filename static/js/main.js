@@ -863,6 +863,27 @@ Sent via cloudy-success.com`;
         console.warn('LocalStorage save skipped');
       }
 
+      // Secure Backend API Transmission with Anti-Bot Honeypot
+      try {
+        const hpInput = document.getElementById('website_url_hp');
+        fetch('/api/enquiry/', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'X-Requested-With': 'XMLHttpRequest'
+          },
+          body: JSON.stringify({
+            name: inputName.value.trim(),
+            email: inputEmail.value.trim(),
+            phone: inputPhone.value.trim(),
+            service: selectService.value,
+            budget: selectBudget.value,
+            message: textareaMessage.value.trim(),
+            website_url_hp: hpInput ? hpInput.value : ''
+          })
+        }).catch(() => {});
+      } catch (e) {}
+
       setTimeout(() => {
         submitFormBtn.classList.remove('is-submitting');
         submitFormBtn.disabled = false;

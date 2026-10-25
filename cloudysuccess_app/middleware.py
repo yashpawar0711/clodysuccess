@@ -4,6 +4,7 @@ Protects against Clickjacking, XSS, MIME Sniffing, Path Traversal, Bot Probes, a
 """
 
 import re
+import urllib.parse
 from django.http import HttpResponseForbidden, JsonResponse
 
 # Suspicious probe patterns (attackers scanning for common vulnerabilities)
@@ -40,11 +41,12 @@ class HardenedSecurityMiddleware:
         if SUSPICIOUS_REGEX.search(path):
             return HttpResponseForbidden("Access Denied: Security Violation Triggered.")
 
-        # 2. Block suspicious query parameter injections (e.g. <script>, UNION SELECT)
+        # 2. Block suspicious query parameter injections (e.g. <script>, UNION SELECT, SLEEP)
         query_string = request.META.get('QUERY_STRING', '')
         if query_string:
-            lowered = query_string.lower()
-            if '<script' in lowered or 'union select' in lowered or 'information_schema' in lowered:
+            lowered = urllib.parse.unquote_plus(query_string).lower()
+            sqli_patterns = ['union select', 'union+select', 'information_schema', 'sleep(', 'benchmark(', 'load_file(', '<script', 'javascript:']
+            if any(pattern in lowered for pattern in sqli_patterns):
                 return HttpResponseForbidden("Access Denied: Malicious Query String Detected.")
 
         response = self.get_response(request)
