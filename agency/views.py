@@ -4,6 +4,16 @@ from django.http import JsonResponse
 from django.views.decorators.http import require_POST, require_GET
 from django.views.decorators.csrf import ensure_csrf_cookie, csrf_exempt
 from .models import ProjectEnquiry, QuoteCalculation, PortfolioProject, FAQItem, PricingTier
+from .security import (
+    get_client_ip,
+    check_enquiry_rate_limit,
+    check_quote_rate_limit,
+    sanitize_text,
+    validate_email_address,
+    validate_phone_number,
+    is_bot_honeypot_triggered,
+    verify_request_origin
+)
 
 
 DEFAULT_PROJECTS = [
@@ -22,7 +32,7 @@ DEFAULT_PROJECTS = [
             "Sub-1.2s average load performance across all global test locations",
             "Full lead-capture integration with automated email alerts and WhatsApp routing"
         ],
-        "tech_stack": ["Vanilla HTML5", "High-Performance CSS", "Chart.js", "Responsive Grid", "SEO Schema"],
+        "tech_stack": ["Vanilla HTML5", "Chart.js", "Responsive Grid", "SEO Schema", "High-Performance CSS"],
         "order": 1
     },
     {
@@ -40,7 +50,7 @@ DEFAULT_PROJECTS = [
             "Mobile-first digital menu with touch-friendly navigation and wine pairings",
             "Zero layout shifts (CLS < 0.01) for seamless mobile dining reservations"
         ],
-        "tech_stack": ["Custom CSS Tokens", "Touch Gestures", "Booking Engine UX", "Mobile Menu", "WebP Artistry"],
+        "tech_stack": ["Touch Gestures", "Mobile Menu", "WebP Artistry", "Custom CSS Tokens", "Booking Engine UX"],
         "order": 2
     },
     {
@@ -58,7 +68,7 @@ DEFAULT_PROJECTS = [
             "Editorial serif and mono typography pairing with high legibility",
             "Direct inquiry button with pre-selected project type"
         ],
-        "tech_stack": ["Editorial Typography", "Parallax Scrolling", "Blueprint Lightbox", "CSS Grid", "Minimalist UI"],
+        "tech_stack": ["CSS Grid", "Minimalist UI", "Blueprint Lightbox", "Parallax Scrolling", "Editorial Typography"],
         "order": 3
     },
     {
@@ -76,7 +86,7 @@ DEFAULT_PROJECTS = [
             "Secure multi-gateway payment architecture (Stripe, Razorpay, Apple Pay)",
             "Speed-tuned product grid with lazy loading and instant search"
         ],
-        "tech_stack": ["E-Commerce Core", "Cart Drawer UX", "Payment Gateways", "Inventory Filter", "Conversion Funnel"],
+        "tech_stack": ["Cart Drawer UX", "E-Commerce Core", "Payment Gateways", "Inventory Filter", "Conversion Funnel"],
         "order": 4
     },
     {
@@ -94,7 +104,7 @@ DEFAULT_PROJECTS = [
             "High contrast dark UI complying with WCAG 2.1 accessibility standards",
             "Scalable component architecture ready for backend API hydration"
         ],
-        "tech_stack": ["Single Page App", "Data Visualizations", "Custom SVG Charts", "Dark Mode UI", "API Ready"],
+        "tech_stack": ["API Ready", "Dark Mode UI", "Single Page App", "Custom SVG Charts", "Data Visualizations"],
         "order": 5
     },
     {
@@ -112,7 +122,7 @@ DEFAULT_PROJECTS = [
             "Interactive project carousel with smooth keyboard and drag navigation",
             "Strictly optimized for 60fps rendering without memory leaks"
         ],
-        "tech_stack": ["CSS Keyframes", "Magnetic Physics", "WebGL Ambience", "Fluid Typography", "Custom Motion"],
+        "tech_stack": ["CSS Keyframes", "Custom Motion", "WebGL Ambience", "Fluid Typography", "Magnetic Physics"],
         "order": 6
     }
 ]
@@ -152,7 +162,7 @@ DEFAULT_PRICING_TIERS = [
         "features": [
             "Up to 10 Tailored Dynamic Pages",
             "CMS / Admin Panel for Easy Updates",
-            "Interactive Lead Capture & Calculator",
+            "Interactive Lead Capture & Smart Forms",
             "Custom Micro-Interactions & Modern UI",
             "Complete Technical & Local SEO Setup",
             "Speed Score 95+ Guarantee",

@@ -6,7 +6,9 @@
   <script>
     (function() {
       var savedTheme = localStorage.getItem('cloudy_theme');
-      if (savedTheme === 'light') {
+      if (savedTheme === 'dark') {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      } else {
         document.documentElement.setAttribute('data-theme', 'light');
       }
     })();
@@ -38,7 +40,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   
-  <link rel="stylesheet" href="/src/style.css?v=3.0">
+  <link rel="stylesheet" href="/src/style.css?v=3.9">
 
   <!-- Schema.org Structured Data -->
   <script type="application/ld+json">
@@ -98,6 +100,40 @@
     <div class="scroll-progress-bar" id="scroll-progress-bar"></div>
   </div>
 
+  <!-- Top Info Bar (CloudRegex Signature Sapphire Blue #2f4e97) -->
+  <div id="top-info-bar" class="top-info-bar">
+    <div class="top-info-container">
+      <span class="top-info-item top-info-email">
+        <a href="mailto:pawaryash0711@gmail.com" class="top-info-link">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <span>pawaryash0711@gmail.com</span>
+        </a>
+      </span>
+      <span class="top-info-item top-info-hours">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        <span>Mon–Sat 09AM–08PM</span>
+      </span>
+      <span class="top-info-item top-info-phone">
+        <a href="tel:+919356047461" class="top-info-link">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <span>+91 93560 47461</span>
+        </a>
+      </span>
+      <span class="top-info-item top-info-ig-item">
+        <a href="https://www.instagram.com/cloudy_success_pvt_ltd?xtok=ZGF6ZTVzYjBvdTRq" target="_blank" rel="noopener noreferrer" class="top-info-link top-info-ig" title="Official Instagram">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+          <span>Instagram</span>
+        </a>
+      </span>
+      <span class="top-info-item top-info-wa-item">
+        <a href="https://api.whatsapp.com/send?phone=919356047461&text=Hello%20Yash,%20I'd%20like%20to%20discuss%20a%20website%20project%20for%20my%20business." target="_blank" rel="noopener noreferrer" class="top-info-link top-info-wa">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+          <span>WhatsApp</span>
+        </a>
+      </span>
+    </div>
+  </div>
+
   <!-- Navigation Bar -->
   <header class="site-header" id="site-header">
     <nav class="nav-container" aria-label="Main Navigation">
@@ -107,8 +143,8 @@
           <img src="/logo.svg" alt="Cloudy Success Logo" width="36" height="36">
         </div>
         <div class="brand-text">
-          <span class="brand-name">Cloudy<span class="text-cyan-400">Success</span></span>
-          <span class="brand-badge"><span class="pulse-dot"></span> Available for Projects</span>
+          <span class="brand-name">Cloudy<span class="gradient-text">Success</span></span>
+          <span class="brand-tagline">Your Vision. Our Digital Solutions.</span>
         </div>
       </a>
 
@@ -153,7 +189,7 @@
     <div class="mobile-drawer-panel">
       <div class="mobile-drawer-header">
         <div class="brand-text">
-          <span class="brand-name">Cloudy<span class="text-cyan-400">Success</span></span>
+          <span class="brand-name">Cloudy<span class="gradient-text">Success</span></span>
           <span class="brand-subtext">Your Vision. Our Digital Solutions.</span>
         </div>
         <button type="button" class="drawer-close-btn" id="drawer-close-btn" aria-label="Close menu">
@@ -190,9 +226,13 @@
           <svg class="btn-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
         <div class="mobile-contact-chips">
-          <a href="https://wa.me/919356047461?text=Hello%20Yash,%20I'm%20interested%20in%20a%20website%20project%20with%20Cloudy%20Success." target="_blank" rel="noopener noreferrer" class="contact-chip whatsapp-chip">
+          <a href="https://www.instagram.com/cloudy_success_pvt_ltd?xtok=ZGF6ZTVzYjBvdTRq" target="_blank" rel="noopener noreferrer" class="contact-chip instagram-chip">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+            <span>Instagram @cloudy_success_pvt_ltd</span>
+          </a>
+          <a href="https://api.whatsapp.com/send?phone=919356047461&text=Hello%20Yash,%20I'm%20interested%20in%20a%20website%20project%20with%20Cloudy%20Success." target="_blank" rel="noopener noreferrer" class="contact-chip whatsapp-chip">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
-            <span>WhatsApp Quick Chat</span>
+            <span>WhatsApp</span>
           </a>
           <a href="tel:+919356047461" class="contact-chip phone-chip">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
@@ -208,17 +248,10 @@
     <!-- ================================================================= -->
     <!-- SECTION: HERO                                                     -->
     <!-- ================================================================= -->
-    <section id="hero" class="hero-section section-padding" aria-labelledby="hero-heading">
+    <section id="hero" class="hero-section" aria-labelledby="hero-heading">
       <div class="container hero-container">
         
         <div class="hero-content reveal-fade-up">
-          <!-- Tagline Pill -->
-          <div class="hero-badge">
-            <span class="badge-icon">✨</span>
-            <span class="badge-text">Modern Web Engineering Studio</span>
-            <span class="badge-divider"></span>
-            <span class="badge-sub">Cloudy Success</span>
-          </div>
 
           <!-- Main Headline -->
           <h1 id="hero-heading" class="hero-title">
@@ -339,16 +372,27 @@
 
       <!-- Trust Ribbon / Audience Highlights -->
       <div class="trust-ribbon">
-        <div class="container">
+        <div class="container trust-ribbon-container">
           <p class="trust-title">Built For Growth-Focused Clients Across Industries</p>
-          <div class="trust-tags-marquee">
-            <span class="trust-pill">✨ Startups & Founders</span>
-            <span class="trust-pill">💼 Small Businesses</span>
-            <span class="trust-pill">🍽️ Cafes & Restaurants</span>
-            <span class="trust-pill">🛍️ E-Commerce Brands</span>
-            <span class="trust-pill">👨‍💻 Creative Professionals</span>
-            <span class="trust-pill">🏢 Corporate Enterprises</span>
-            <span class="trust-pill">📱 SaaS & Tech Products</span>
+          <div class="trust-marquee-track-wrapper">
+            <div class="trust-tags-marquee">
+              <span class="trust-pill">✨ Startups & Founders</span>
+              <span class="trust-pill">💼 Small Businesses</span>
+              <span class="trust-pill">🍽️ Cafes & Restaurants</span>
+              <span class="trust-pill">🛍️ E-Commerce Brands</span>
+              <span class="trust-pill">👨‍💻 Creative Professionals</span>
+              <span class="trust-pill">🏢 Corporate Enterprises</span>
+              <span class="trust-pill">📱 SaaS & Tech Products</span>
+            </div>
+            <div class="trust-tags-marquee" aria-hidden="true">
+              <span class="trust-pill">✨ Startups & Founders</span>
+              <span class="trust-pill">💼 Small Businesses</span>
+              <span class="trust-pill">🍽️ Cafes & Restaurants</span>
+              <span class="trust-pill">🛍️ E-Commerce Brands</span>
+              <span class="trust-pill">👨‍💻 Creative Professionals</span>
+              <span class="trust-pill">🏢 Corporate Enterprises</span>
+              <span class="trust-pill">📱 SaaS & Tech Products</span>
+            </div>
           </div>
         </div>
       </div>
@@ -381,12 +425,12 @@
                 <span class="story-dot"></span>
                 <span>The Cloudy Success Philosophy</span>
               </div>
-              <h3 class="about-card-title">Crafting digital solutions that command attention and drive conversions.</h3>
+              <h3 class="about-card-title">Digital craftsmanship engineered to command authority and convert visitors.</h3>
               <p class="about-text">
-                At <strong>Cloudy Success</strong>, we believe every business deserves a web presence that communicates credibility within the first three seconds. We don't rely on bloated, slow pre-made themes or cookie-cutter templates.
+                At <strong>Cloudy Success</strong>, we believe your brand deserves a web presence that communicates absolute credibility within three seconds. We don't rely on bloated pre-made themes or cookie-cutter templates.
               </p>
               <p class="about-text">
-                Whether you are a local entrepreneur, a specialty restaurant owner, or a scaling tech venture, our purpose is simple: <em>Your Vision. Our Digital Solutions.</em> We handle everything from intuitive UI/UX design to modern full-stack development, mobile responsiveness, and search engine readiness.
+                From bespoke UI/UX design to high-speed development, mobile precision, and SEO foundation — our mission is simple: <em>Your Vision. Our Digital Solutions.</em>
               </p>
 
               <!-- Core Pillars -->
@@ -462,7 +506,7 @@
                   </div>
                 </a>
 
-                <a href="https://wa.me/919356047461?text=Hello%20Yash,%20I'd%20like%20to%20discuss%20a%20website%20project%20for%20my%20business." target="_blank" rel="noopener noreferrer" class="channel-link">
+                <a href="https://api.whatsapp.com/send?phone=919356047461&text=Hello%20Yash,%20I'd%20like%20to%20discuss%20a%20website%20project%20for%20my%20business." target="_blank" rel="noopener noreferrer" class="channel-link">
                   <div class="channel-icon whatsapp-accent">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
                   </div>
@@ -600,101 +644,7 @@
             </div>
           </div>
 
-          <!-- Service 5: UI/UX Design -->
-          <div class="service-card glass-panel reveal-fade-up" data-delay="250" data-service-id="ui-ux">
-            <div class="service-icon-box">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
-            </div>
-            <h3 class="service-title">UI/UX Design</h3>
-            <p class="service-desc">
-              Research-backed interface and user experience design that balances modern visual allure with friction-free usability, intuitive design systems, and engaging micro-interactions.
-            </p>
-            <ul class="service-features" role="list">
-              <li>Interactive clickable prototypes</li>
-              <li>Design system & component libraries</li>
-              <li>User journey mapping & usability audits</li>
-              <li>WCAG 2.1 accessible color schemes</li>
-            </ul>
-            <div class="service-card-footer">
-              <button type="button" class="service-enquire-btn" data-service="UI/UX Design">
-                <span>Enquire For This</span>
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-              </button>
-            </div>
-          </div>
-
-          <!-- Service 6: Web Applications -->
-          <div class="service-card glass-panel reveal-fade-up" data-delay="300" data-service-id="web-apps">
-            <div class="service-icon-box">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
-            </div>
-            <h3 class="service-title">Web Applications</h3>
-            <p class="service-desc">
-              Custom dynamic applications, SaaS MVPs, customer dashboards, internal operational tools, and API-driven web portals built for high security, speed, and long-term scalability.
-            </p>
-            <ul class="service-features" role="list">
-              <li>Dynamic data rendering & state management</li>
-              <li>Secure user authentication & roles</li>
-              <li>RESTful / GraphQL API integrations</li>
-              <li>Fast cloud deployment & database setups</li>
-            </ul>
-            <div class="service-card-footer">
-              <button type="button" class="service-enquire-btn" data-service="Web Applications">
-                <span>Enquire For This</span>
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-              </button>
-            </div>
-          </div>
-
-          <!-- Service 7: Landing Pages -->
-          <div class="service-card glass-panel reveal-fade-up" data-delay="350" data-service-id="landing-pages">
-            <div class="service-icon-box">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path></svg>
-            </div>
-            <h3 class="service-title">Landing Pages</h3>
-            <p class="service-desc">
-              Hyper-focused, conversion-optimized landing pages engineered for product launches, marketing campaigns, ad traffic conversion, and early sign-up waitlists.
-            </p>
-            <ul class="service-features" role="list">
-              <li>High-velocity copy-first visual hierarchy</li>
-              <li>A/B testing-ready component structure</li>
-              <li>Instant form & lead webhook routing</li>
-              <li>Sub-second loading speeds for low bounce rate</li>
-            </ul>
-            <div class="service-card-footer">
-              <button type="button" class="service-enquire-btn" data-service="Landing Pages">
-                <span>Enquire For This</span>
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-              </button>
-            </div>
-          </div>
-
-          <!-- Service 8: Website Maintenance & Support -->
-          <div class="service-card glass-panel reveal-fade-up" data-delay="400" data-service-id="maintenance">
-            <div class="service-icon-box">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
-            </div>
-            <h3 class="service-title">Website Maintenance and Support</h3>
-            <p class="service-desc">
-              Ongoing technical peace of mind. We keep your website running at peak health with regular security updates, automated backups, speed tuning, content updates, and direct support.
-            </p>
-            <ul class="service-features" role="list">
-              <li>24/7 uptime monitoring & rapid troubleshooting</li>
-              <li>Core updates, security patching & backups</li>
-              <li>Monthly speed audits & performance tuning</li>
-              <li>Direct WhatsApp assistance for urgent tweaks</li>
-            </ul>
-            <div class="service-card-footer">
-              <button type="button" class="service-enquire-btn" data-service="Website Maintenance and Support">
-                <span>Enquire For This</span>
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-              </button>
-            </div>
-          </div>
-
         </div>
-
-      </div>
     </section>
 
 
@@ -751,9 +701,11 @@
                 A modern institutional financial consulting website featuring live interactive data metrics, investor portal UX, and executive lead generation.
               </p>
               <div class="tech-tags">
-                <span class="tech-tag">HTML5 / Vanilla CSS</span>
-                <span class="tech-tag">Financial Charts</span>
+                <span class="tech-tag">Vanilla HTML5</span>
+                <span class="tech-tag">Chart.js</span>
                 <span class="tech-tag">Responsive Grid</span>
+                <span class="tech-tag">SEO Schema</span>
+                <span class="tech-tag">High-Performance CSS</span>
               </div>
             </div>
           </div>
@@ -780,9 +732,11 @@
                 Luxury gastronomic dining experience website with dark slate aesthetics, dynamic seasonal wine card, and table reservation booking flow.
               </p>
               <div class="tech-tags">
-                <span class="tech-tag">Culinary Visuals</span>
-                <span class="tech-tag">Table Booking UX</span>
+                <span class="tech-tag">Touch Gestures</span>
                 <span class="tech-tag">Mobile Menu</span>
+                <span class="tech-tag">WebP Artistry</span>
+                <span class="tech-tag">Custom CSS Tokens</span>
+                <span class="tech-tag">Booking Engine UX</span>
               </div>
             </div>
           </div>
@@ -809,9 +763,11 @@
                 Minimalist Swiss-inspired architect portfolio featuring blueprints viewer, monochromatic gallery grid, and editorial typography.
               </p>
               <div class="tech-tags">
+                <span class="tech-tag">CSS Grid</span>
+                <span class="tech-tag">Minimalist UI</span>
+                <span class="tech-tag">Blueprint Lightbox</span>
+                <span class="tech-tag">Parallax Scrolling</span>
                 <span class="tech-tag">Editorial Typography</span>
-                <span class="tech-tag">Blueprint Viewer</span>
-                <span class="tech-tag">Smooth Parallax</span>
               </div>
             </div>
           </div>
@@ -838,9 +794,11 @@
                 Direct-to-consumer premium audiophile storefront with interactive product 360 preview, one-click cart drawer, and review system.
               </p>
               <div class="tech-tags">
-                <span class="tech-tag">E-Commerce Engine</span>
                 <span class="tech-tag">Cart Drawer UX</span>
-                <span class="tech-tag">Fast Checkout</span>
+                <span class="tech-tag">E-Commerce Core</span>
+                <span class="tech-tag">Payment Gateways</span>
+                <span class="tech-tag">Inventory Filter</span>
+                <span class="tech-tag">Conversion Funnel</span>
               </div>
             </div>
           </div>
@@ -867,9 +825,11 @@
                 Full-featured telemetry analytics web platform with dynamic charts, MRR metrics, real-time user activity maps, and dark UI system.
               </p>
               <div class="tech-tags">
-                <span class="tech-tag">Web Application</span>
-                <span class="tech-tag">Dynamic Charts</span>
-                <span class="tech-tag">Security & Roles</span>
+                <span class="tech-tag">API Ready</span>
+                <span class="tech-tag">Dark Mode UI</span>
+                <span class="tech-tag">Single Page App</span>
+                <span class="tech-tag">Custom SVG Charts</span>
+                <span class="tech-tag">Data Visualizations</span>
               </div>
             </div>
           </div>
@@ -896,9 +856,11 @@
                 Boundary-pushing motion-rich creative agency portfolio with electric cyan neon accents, 3D abstract models, and award-grade micro-interactions.
               </p>
               <div class="tech-tags">
-                <span class="tech-tag">Motion Design</span>
-                <span class="tech-tag">3D Interactive</span>
-                <span class="tech-tag">Brand Story</span>
+                <span class="tech-tag">CSS Keyframes</span>
+                <span class="tech-tag">Custom Motion</span>
+                <span class="tech-tag">WebGL Ambience</span>
+                <span class="tech-tag">Fluid Typography</span>
+                <span class="tech-tag">Magnetic Physics</span>
               </div>
             </div>
           </div>
@@ -942,82 +904,90 @@
           
           <!-- Step 1 -->
           <div class="process-step glass-panel reveal-fade-up">
-            <div class="step-badge">
-              <span class="step-num">01</span>
-              <span class="step-icon">🔍</span>
+            <div class="process-step-header">
+              <div class="step-badge">
+                <span class="step-num">01</span>
+                <span class="step-icon">🔍</span>
+              </div>
+              <div class="step-title-box">
+                <span class="step-phase">Phase 01</span>
+                <h3 class="step-title">Discover & Align</h3>
+              </div>
             </div>
-            <div class="step-content">
-              <span class="step-phase">Phase 01</span>
-              <h3 class="step-title">Discover & Align</h3>
-              <p class="step-desc">
-                We start with a thorough strategy session to understand your business model, customer psychology, core competitors, and clear milestones. No assumptions.
-              </p>
-              <ul class="step-deliverables" role="list">
-                <li>Goals & scope documentation</li>
-                <li>Target audience persona mapping</li>
-                <li>Content roadmap & sitemap structure</li>
-              </ul>
-            </div>
+            <p class="step-desc">
+              We start with a thorough strategy session to understand your business model, customer psychology, core competitors, and clear milestones. No assumptions.
+            </p>
+            <ul class="step-deliverables" role="list">
+              <li>Goals & scope documentation</li>
+              <li>Target audience persona mapping</li>
+              <li>Content roadmap & sitemap structure</li>
+            </ul>
           </div>
 
           <!-- Step 2 -->
           <div class="process-step glass-panel reveal-fade-up" data-delay="100">
-            <div class="step-badge">
-              <span class="step-num">02</span>
-              <span class="step-icon">🎨</span>
+            <div class="process-step-header">
+              <div class="step-badge">
+                <span class="step-num">02</span>
+                <span class="step-icon">🎨</span>
+              </div>
+              <div class="step-title-box">
+                <span class="step-phase">Phase 02</span>
+                <h3 class="step-title">Plan & Design</h3>
+              </div>
             </div>
-            <div class="step-content">
-              <span class="step-phase">Phase 02</span>
-              <h3 class="step-title">Plan & Design</h3>
-              <p class="step-desc">
-                We design intuitive wireframes and high-fidelity visual concepts. You review interactive prototypes to ensure the aesthetic and user flow match your vision.
-              </p>
-              <ul class="step-deliverables" role="list">
-                <li>Wireframes & visual art direction</li>
-                <li>High-fidelity responsive UI mockups</li>
-                <li>Client review & revision feedback loop</li>
-              </ul>
-            </div>
+            <p class="step-desc">
+              We design intuitive wireframes and high-fidelity visual concepts. You review interactive prototypes to ensure the aesthetic and user flow match your vision.
+            </p>
+            <ul class="step-deliverables" role="list">
+              <li>Wireframes & visual art direction</li>
+              <li>High-fidelity responsive UI mockups</li>
+              <li>Client review & revision feedback loop</li>
+            </ul>
           </div>
 
           <!-- Step 3 -->
           <div class="process-step glass-panel reveal-fade-up" data-delay="200">
-            <div class="step-badge">
-              <span class="step-num">03</span>
-              <span class="step-icon">💻</span>
+            <div class="process-step-header">
+              <div class="step-badge">
+                <span class="step-num">03</span>
+                <span class="step-icon">💻</span>
+              </div>
+              <div class="step-title-box">
+                <span class="step-phase">Phase 03</span>
+                <h3 class="step-title">Develop & Test</h3>
+              </div>
             </div>
-            <div class="step-content">
-              <span class="step-phase">Phase 03</span>
-              <h3 class="step-title">Develop & Test</h3>
-              <p class="step-desc">
-                We write clean, modular, production-grade code. We optimize assets for sub-second loading, ensure cross-browser compatibility, and verify accessibility.
-              </p>
-              <ul class="step-deliverables" role="list">
-                <li>Modern semantic HTML5 / CSS / JS code</li>
-                <li>Speed optimization & mobile responsiveness</li>
-                <li>Cross-device, Safari, Chrome & Firefox testing</li>
-              </ul>
-            </div>
+            <p class="step-desc">
+              We write clean, modular, production-grade code. We optimize assets for sub-second loading, ensure cross-browser compatibility, and verify accessibility.
+            </p>
+            <ul class="step-deliverables" role="list">
+              <li>Modern semantic HTML5 / CSS / JS code</li>
+              <li>Speed optimization & mobile responsiveness</li>
+              <li>Cross-device, Safari, Chrome & Firefox testing</li>
+            </ul>
           </div>
 
           <!-- Step 4 -->
           <div class="process-step glass-panel reveal-fade-up" data-delay="300">
-            <div class="step-badge">
-              <span class="step-num">04</span>
-              <span class="step-icon">🚀</span>
+            <div class="process-step-header">
+              <div class="step-badge">
+                <span class="step-num">04</span>
+                <span class="step-icon">🚀</span>
+              </div>
+              <div class="step-title-box">
+                <span class="step-phase">Phase 04</span>
+                <h3 class="step-title">Launch & Support</h3>
+              </div>
             </div>
-            <div class="step-content">
-              <span class="step-phase">Phase 04</span>
-              <h3 class="step-title">Launch & Support</h3>
-              <p class="step-desc">
-                We handle domain routing, SSL certificate setup, SEO indexing, and production deployment. After launch, we provide continuous technical assistance.
-              </p>
-              <ul class="step-deliverables" role="list">
-                <li>Live domain & SSL deployment</li>
-                <li>Google Search Console & indexing</li>
-                <li>Dedicated post-launch warranty & maintenance</li>
-              </ul>
-            </div>
+            <p class="step-desc">
+              We handle domain routing, SSL certificate setup, SEO indexing, and production deployment. After launch, we provide continuous technical assistance.
+            </p>
+            <ul class="step-deliverables" role="list">
+              <li>Live domain & SSL deployment</li>
+              <li>Google Search Console & indexing</li>
+              <li>Dedicated post-launch warranty & maintenance</li>
+            </ul>
           </div>
 
         </div>
@@ -1039,7 +1009,7 @@
             <span class="gradient-text">Tailored to Your Stage of Growth</span>
           </h2>
           <p class="section-subtitle">
-            Clear investment estimates with zero hidden fees. Choose a standard package or use our interactive quote builder below.
+            Clear investment estimates with zero hidden fees. Choose a package tailored to your needs or contact us for custom requirements.
           </p>
         </div>
 
@@ -1093,7 +1063,7 @@
             <ul class="package-features" role="list">
               <li><svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Up to 10 Tailored Dynamic Pages</li>
               <li><svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> CMS / Admin Panel for Easy Updates</li>
-              <li><svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Interactive Lead Capture & Calculator</li>
+              <li><svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Interactive Lead Capture & Smart Forms</li>
               <li><svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Custom Micro-Interactions & Modern UI</li>
               <li><svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Complete Technical & Local SEO Setup</li>
               <li><svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Speed Score 95+ Guarantee</li>
@@ -1137,82 +1107,6 @@
             </div>
           </div>
 
-        </div>
-
-        <!-- Interactive Instant Quote Builder Widget -->
-        <div class="quote-calculator-box glass-panel reveal-fade-up">
-          <div class="calculator-header">
-            <span class="calc-badge">⚡ Interactive Estimator</span>
-            <h3 class="calc-title">Instant Project Scope & Estimate Calculator</h3>
-            <p class="calc-subtitle">Configure your requirements to see an immediate estimated range, then send directly to Yash on WhatsApp!</p>
-          </div>
-
-          <div class="calculator-controls">
-            <!-- Control 1: Project Type -->
-            <div class="calc-group">
-              <label class="calc-label" for="calc-type">Project Type:</label>
-              <div class="calc-pills-radio" id="calc-type-group">
-                <button type="button" class="calc-pill active" data-type-cost="4000" data-type-name="Static Website">Static Website</button>
-                <button type="button" class="calc-pill" data-type-cost="8000" data-type-name="Dynamic Website">Dynamic Website</button>
-                <button type="button" class="calc-pill" data-type-cost="15000" data-type-name="E-Commerce Store">E-Commerce Store</button>
-                <button type="button" class="calc-pill" data-type-cost="25000" data-type-name="Custom Web App">Web App / SaaS</button>
-              </div>
-            </div>
-
-            <!-- Control 2: Number of Pages Slider -->
-            <div class="calc-group">
-              <div class="slider-label-row">
-                <label class="calc-label" for="calc-pages-slider">Estimated Number of Pages:</label>
-                <span class="slider-val" id="calc-pages-val">3 Pages</span>
-              </div>
-              <input type="range" id="calc-pages-slider" min="1" max="15" value="3" step="1" class="calc-slider" aria-label="Estimated number of pages">
-            </div>
-
-            <!-- Control 3: Add-on Features Checkboxes -->
-            <div class="calc-group">
-              <label class="calc-label">Enhancement Add-ons:</label>
-              <div class="calc-addons-grid">
-                <label class="addon-checkbox-label">
-                  <input type="checkbox" id="addon-seo" class="addon-check" value="1500" checked>
-                  <span class="checkbox-custom"></span>
-                  <span class="addon-text">Advanced SEO Setup (+₹1,500)</span>
-                </label>
-                <label class="addon-checkbox-label">
-                  <input type="checkbox" id="addon-anim" class="addon-check" value="2000">
-                  <span class="checkbox-custom"></span>
-                  <span class="addon-text">Premium Motion & Micro-Interactions (+₹2,000)</span>
-                </label>
-                <label class="addon-checkbox-label">
-                  <input type="checkbox" id="addon-whatsapp" class="addon-check" value="1000" checked>
-                  <span class="checkbox-custom"></span>
-                  <span class="addon-text">WhatsApp Direct Integration (+₹1,000)</span>
-                </label>
-                <label class="addon-checkbox-label">
-                  <input type="checkbox" id="addon-speed" class="addon-check" value="1500">
-                  <span class="checkbox-custom"></span>
-                  <span class="addon-text">Sub-1s Performance Hardening (+₹1,500)</span>
-                </label>
-              </div>
-            </div>
-          </div>
-
-          <!-- Calculator Result Output -->
-          <div class="calculator-result-bar">
-            <div class="result-breakdown">
-              <span class="result-label">Estimated Investment Range:</span>
-              <div class="result-cost" id="calculated-estimate">₹5,500 – ₹7,000</div>
-              <span class="result-disclaimer">*Transparent preliminary guide. Final estimate confirmed upon detailed discovery discussion.</span>
-            </div>
-            <div class="result-actions">
-              <button type="button" class="btn btn-primary" id="send-calc-whatsapp-btn">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
-                <span>Send Scope to WhatsApp</span>
-              </button>
-              <a href="#contact" class="btn btn-secondary" id="apply-calc-form-btn">
-                <span>Paste Into Enquiry Form</span>
-              </a>
-            </div>
-          </div>
         </div>
 
       </div>
@@ -1469,13 +1363,24 @@
                 </a>
 
                 <!-- Info Item 3: Phone / WhatsApp -->
-                <a href="https://wa.me/919356047461?text=Hello%20Yash,%20I'm%20contacting%20you%20via%20Cloudy%20Success%20website." target="_blank" rel="noopener noreferrer" class="info-item interactive-item">
+                <a href="https://api.whatsapp.com/send?phone=919356047461&text=Hello%20Yash,%20I'm%20contacting%20you%20via%20Cloudy%20Success%20website." target="_blank" rel="noopener noreferrer" class="info-item interactive-item">
                   <div class="info-icon whatsapp-accent">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
                   </div>
                   <div class="info-meta">
                     <span class="meta-label">Phone & WhatsApp Direct</span>
                     <span class="meta-value">+91 93560 47461</span>
+                  </div>
+                </a>
+
+                <!-- Info Item 4: Instagram Official -->
+                <a href="https://www.instagram.com/cloudy_success_pvt_ltd?xtok=ZGF6ZTVzYjBvdTRq" target="_blank" rel="noopener noreferrer" class="info-item interactive-item">
+                  <div class="info-icon instagram-accent">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                  </div>
+                  <div class="info-meta">
+                    <span class="meta-label">Instagram Official</span>
+                    <span class="meta-value">@cloudy_success_pvt_ltd</span>
                   </div>
                 </a>
 
@@ -1494,7 +1399,7 @@
               <!-- Instant WhatsApp Quick Handoff -->
               <div class="quick-whatsapp-box">
                 <p class="quick-text">Need immediate answers? Start a direct WhatsApp chat:</p>
-                <a href="https://wa.me/919356047461?text=Hello%20Yash,%20I'd%20like%20to%20discuss%20a%20project%20for%20my%20business." target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp w-full single-line-btn">
+                <a href="https://api.whatsapp.com/send?phone=919356047461&text=Hello%20Yash,%20I'd%20like%20to%20discuss%20a%20project%20for%20my%20business." target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp w-full single-line-btn">
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
                   <span>Chat on WhatsApp</span>
                 </a>
@@ -1546,10 +1451,6 @@
                         <option value="E-commerce Website Development">E-commerce Website Development</option>
                         <option value="Portfolio Websites">Portfolio Websites</option>
                         <option value="Responsive Web Design">Responsive Web Design</option>
-                        <option value="UI/UX Design">UI/UX Design</option>
-                        <option value="Web Applications">Web Applications</option>
-                        <option value="Landing Pages">Landing Pages</option>
-                        <option value="Website Maintenance and Support">Website Maintenance and Support</option>
                         <option value="Custom Project Scope">Custom Project Scope</option>
                       </select>
                       <svg class="select-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
@@ -1582,7 +1483,7 @@
 
                 <!-- Submission Actions -->
                 <div class="form-submit-actions">
-                  <button type="submit" class="btn btn-primary btn-lg w-full" id="submit-form-btn">
+                  <button type="submit" class="btn btn-primary btn-compact" id="submit-form-btn">
                     <span class="btn-text">Send Project Enquiry</span>
                     <svg class="btn-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                     <span class="spinner" id="form-spinner" aria-hidden="true"></span>
@@ -1593,14 +1494,14 @@
                   </div>
 
                   <div class="fallback-actions-grid">
-                    <button type="button" class="btn btn-whatsapp-outline single-line-btn" id="send-whatsapp-direct-btn">
+                    <a href="https://api.whatsapp.com/send?phone=919356047461&text=Hello%20Yash,%20I'd%20like%20to%20discuss%20a%20website%20project%20for%20my%20business." target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp-outline single-line-btn" id="send-whatsapp-direct-btn">
                       <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
                       <span>Chat on WhatsApp</span>
-                    </button>
-                    <button type="button" class="btn btn-secondary" id="send-email-direct-btn">
+                    </a>
+                    <a href="mailto:pawaryash0711@gmail.com?subject=Website%20Project%20Enquiry%20-%20Cloudy%20Success" class="btn btn-secondary" id="send-email-direct-btn">
                       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
                       <span>Open in Email Draft</span>
-                    </button>
+                    </a>
                   </div>
                 </div>
 
@@ -1679,7 +1580,7 @@
             <li><a href="#services">Digital Services</a></li>
             <li><a href="#portfolio">Featured Portfolio</a></li>
             <li><a href="#process">4-Step Process</a></li>
-            <li><a href="#pricing">Pricing & Calculator</a></li>
+            <li><a href="#pricing">Pricing Packages</a></li>
             <li><a href="#faq">Frequently Asked Questions</a></li>
             <li><a href="#contact">Contact & Enquiry</a></li>
           </ul>
@@ -1693,10 +1594,6 @@
             <li><a href="#services" class="footer-service-link" data-service="E-commerce Website Development">E-Commerce Stores</a></li>
             <li><a href="#services" class="footer-service-link" data-service="Portfolio Websites">Portfolio Websites</a></li>
             <li><a href="#services" class="footer-service-link" data-service="Responsive Web Design">Responsive Design</a></li>
-            <li><a href="#services" class="footer-service-link" data-service="UI/UX Design">UI/UX Design</a></li>
-            <li><a href="#services" class="footer-service-link" data-service="Web Applications">Web Applications</a></li>
-            <li><a href="#services" class="footer-service-link" data-service="Landing Pages">Landing Pages</a></li>
-            <li><a href="#services" class="footer-service-link" data-service="Website Maintenance and Support">Maintenance & Support</a></li>
           </ul>
         </div>
 
@@ -1717,9 +1614,15 @@
               </a>
             </li>
             <li>
-              <a href="https://wa.me/919356047461?text=Hello%20Yash,%20I'm%20contacting%20you%20via%20Cloudy%20Success." target="_blank" rel="noopener noreferrer" class="footer-contact-item">
+              <a href="https://api.whatsapp.com/send?phone=919356047461&text=Hello%20Yash,%20I'm%20contacting%20you%20via%20Cloudy%20Success." target="_blank" rel="noopener noreferrer" class="footer-contact-item">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
                 <span>WhatsApp: +91 93560 47461</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.instagram.com/cloudy_success_pvt_ltd?xtok=ZGF6ZTVzYjBvdTRq" target="_blank" rel="noopener noreferrer" class="footer-contact-item">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                <span>Instagram: @cloudy_success_pvt_ltd</span>
               </a>
             </li>
           </ul>
@@ -1749,15 +1652,28 @@
   <!-- ================================================================= -->
   <!-- FLOATING WIDGETS: BACK TO TOP & QUICK WHATSAPP BUTTON             -->
   <!-- ================================================================= -->
-  <div class="floating-controls" aria-label="Quick Access Controls">
-    
-    <!-- Floating WhatsApp Button -->
-    <a href="https://wa.me/919356047461?text=Hello%20Yash,%20I'm%20contacting%20you%20via%20Cloudy%20Success." target="_blank" rel="noopener noreferrer" class="floating-btn whatsapp-floating" aria-label="Chat directly on WhatsApp">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
-      <span class="tooltip-text">Quick WhatsApp</span>
+  <!-- Mobile Full-Width Bottom Bar (Instagram, Email, WhatsApp, Call - Mobile Only) -->
+  <nav class="mobile-bottom-dock" id="mobile-bottom-dock" aria-label="Mobile Quick Connect">
+    <a href="https://www.instagram.com/cloudy_success_pvt_ltd?xtok=ZGF6ZTVzYjBvdTRq" target="_blank" rel="noopener noreferrer" class="mobile-dock-btn dock-ig" aria-label="Instagram">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+      <span>Instagram</span>
     </a>
+    <a href="mailto:pawaryash0711@gmail.com" class="mobile-dock-btn dock-email" aria-label="Email">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+      <span>Email</span>
+    </a>
+    <a href="https://api.whatsapp.com/send?phone=919356047461&text=Hello%20Yash,%20I'd%20like%20to%20discuss%20a%20website%20project%20for%20my%20business." target="_blank" rel="noopener noreferrer" class="mobile-dock-btn dock-wa" aria-label="WhatsApp">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+      <span>WhatsApp</span>
+    </a>
+    <a href="tel:+919356047461" class="mobile-dock-btn dock-phone" aria-label="Call Yash Pawar">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 0 0-1.01.24l-2.2 2.2a15.053 15.053 0 0 1-6.59-6.59l2.2-2.21a.96.96 0 0 0 .25-1A11.36 11.36 0 0 1 8.5 4c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.5c0-.55-.45-1-1-1zM5.03 5h1.5c.07.88.22 1.75.45 2.58l-1.2 1.21c-.4-1.21-.66-2.47-.75-3.79zM19 18.97c-1.32-.09-2.58-.35-3.79-.75l1.21-1.2c.83.23 1.7.38 2.58.45v1.5z"/></svg>
+      <span>Call</span>
+    </a>
+  </nav>
 
-    <!-- Back to Top Button with SVG Circular Progress -->
+  <!-- Desktop/Laptop Floating Back to Top Button Only -->
+  <div class="floating-controls" aria-label="Quick Access Controls">
     <button type="button" class="floating-btn back-to-top-btn" id="back-to-top-btn" aria-label="Back to top of page">
       <svg class="progress-ring" width="48" height="48" viewBox="0 0 48 48">
         <circle class="progress-ring-bg" stroke="rgba(255, 255, 255, 0.1)" stroke-width="3" fill="transparent" r="20" cx="24" cy="24"/>
@@ -1765,7 +1681,6 @@
       </svg>
       <svg class="top-arrow-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"></polyline></svg>
     </button>
-
   </div>
 
 

@@ -4,7 +4,7 @@
  * Tagline: Your Vision. Our Digital Solutions.
  */
 
-import confetti from 'canvas-confetti';
+const confetti = window.confetti;
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -410,7 +410,7 @@ document.addEventListener('DOMContentLoaded', () => {
         'Sub-1.2s average load performance across all global test locations',
         'Full lead-capture integration with automated email alerts and WhatsApp routing'
       ],
-      tech: ['Vanilla HTML5', 'High-Performance CSS', 'Chart.js', 'Responsive Grid', 'SEO Schema']
+      tech: ['Vanilla HTML5', 'Chart.js', 'Responsive Grid', 'SEO Schema', 'High-Performance CSS']
     },
     restaurant: {
       title: 'The Obsidian Room',
@@ -424,7 +424,7 @@ document.addEventListener('DOMContentLoaded', () => {
         'Mobile-first digital menu with touch-friendly navigation and wine pairings',
         'Zero layout shifts (CLS < 0.01) for seamless mobile dining reservations'
       ],
-      tech: ['Custom CSS Tokens', 'Touch Gestures', 'Booking Engine UX', 'Mobile Menu', 'WebP Artistry']
+      tech: ['Touch Gestures', 'Mobile Menu', 'WebP Artistry', 'Custom CSS Tokens', 'Booking Engine UX']
     },
     portfolio: {
       title: 'Aeterna Architecture',
@@ -438,7 +438,7 @@ document.addEventListener('DOMContentLoaded', () => {
         'Editorial serif and mono typography pairing with high legibility',
         'Direct inquiry button with pre-selected project type'
       ],
-      tech: ['Editorial Typography', 'Parallax Scrolling', 'Blueprint Lightbox', 'CSS Grid', 'Minimalist UI']
+      tech: ['CSS Grid', 'Minimalist UI', 'Blueprint Lightbox', 'Parallax Scrolling', 'Editorial Typography']
     },
     ecommerce: {
       title: 'Velo Audio Elite',
@@ -452,7 +452,7 @@ document.addEventListener('DOMContentLoaded', () => {
         'Secure multi-gateway payment architecture (Stripe, Razorpay, Apple Pay)',
         'Speed-tuned product grid with lazy loading and instant search'
       ],
-      tech: ['E-Commerce Core', 'Cart Drawer UX', 'Payment Gateways', 'Inventory Filter', 'Conversion Funnel']
+      tech: ['Cart Drawer UX', 'E-Commerce Core', 'Payment Gateways', 'Inventory Filter', 'Conversion Funnel']
     },
     saas: {
       title: 'Aurora Cloud Analytics',
@@ -466,7 +466,7 @@ document.addEventListener('DOMContentLoaded', () => {
         'High contrast dark UI complying with WCAG 2.1 accessibility standards',
         'Scalable component architecture ready for backend API hydration'
       ],
-      tech: ['Single Page App', 'Data Visualizations', 'Custom SVG Charts', 'Dark Mode UI', 'API Ready']
+      tech: ['API Ready', 'Dark Mode UI', 'Single Page App', 'Custom SVG Charts', 'Data Visualizations']
     },
     agency: {
       title: 'Nebula Digital Studio',
@@ -480,7 +480,7 @@ document.addEventListener('DOMContentLoaded', () => {
         'Interactive project carousel with smooth keyboard and drag navigation',
         'Strictly optimized for 60fps rendering without memory leaks'
       ],
-      tech: ['CSS Keyframes', 'Magnetic Physics', 'WebGL Ambience', 'Fluid Typography', 'Custom Motion']
+      tech: ['CSS Keyframes', 'Custom Motion', 'WebGL Ambience', 'Fluid Typography', 'Magnetic Physics']
     }
   };
 
@@ -629,137 +629,6 @@ document.addEventListener('DOMContentLoaded', () => {
       closeModal();
     }
   });
-
-  /* =========================================================================
-     11. INTERACTIVE INSTANT QUOTE CALCULATOR
-     ========================================================================= */
-  const calcPills = document.querySelectorAll('.calc-pill');
-  const pagesSlider = document.getElementById('calc-pages-slider');
-  const pagesValDisplay = document.getElementById('calc-pages-val');
-  const addonChecks = document.querySelectorAll('.addon-check');
-  const calculatedEstimate = document.getElementById('calculated-estimate');
-  const sendCalcWhatsAppBtn = document.getElementById('send-calc-whatsapp-btn');
-  const applyCalcFormBtn = document.getElementById('apply-calc-form-btn');
-
-  let currentTypeCost = 4000;
-  let currentTypeName = 'Static Website';
-
-  calcPills.forEach((pill) => {
-    pill.addEventListener('click', () => {
-      calcPills.forEach((p) => p.classList.remove('active'));
-      pill.classList.add('active');
-      currentTypeCost = parseInt(pill.getAttribute('data-type-cost'), 10);
-      currentTypeName = pill.getAttribute('data-type-name');
-      recalculateQuote();
-    });
-  });
-
-  if (pagesSlider && pagesValDisplay) {
-    pagesSlider.addEventListener('input', () => {
-      const pages = parseInt(pagesSlider.value, 10);
-      pagesValDisplay.textContent = `${pages} Page${pages > 1 ? 's' : ''}`;
-      recalculateQuote();
-    });
-  }
-
-  addonChecks.forEach((chk) => {
-    chk.addEventListener('change', recalculateQuote);
-  });
-
-  function recalculateQuote() {
-    const pages = pagesSlider ? parseInt(pagesSlider.value, 10) : 3;
-    const additionalPagesCost = (pages - 1) * 600;
-
-    let addonsCost = 0;
-    addonChecks.forEach((chk) => {
-      if (chk.checked) {
-        addonsCost += parseInt(chk.value, 10);
-      }
-    });
-
-    const baseSum = currentTypeCost + additionalPagesCost + addonsCost;
-    const lowEstimate = Math.round(baseSum * 0.95);
-    const highEstimate = Math.round(baseSum * 1.15);
-
-    if (calculatedEstimate) {
-      calculatedEstimate.textContent = `₹${lowEstimate.toLocaleString('en-IN')} – ₹${highEstimate.toLocaleString('en-IN')}`;
-    }
-
-    return {
-      type: currentTypeName,
-      pages,
-      addonsCost,
-      lowEstimate,
-      highEstimate
-    };
-  }
-
-  // Initialize quote calculation on page load
-  recalculateQuote();
-
-  // Send scope to WhatsApp button
-  if (sendCalcWhatsAppBtn) {
-    sendCalcWhatsAppBtn.addEventListener('click', () => {
-      const scope = recalculateQuote();
-      const activeAddons = Array.from(addonChecks)
-        .filter((chk) => chk.checked)
-        .map((chk) => chk.nextElementSibling.nextElementSibling.textContent.trim())
-        .join(', ');
-
-      const message = `Hello Yash! I configured my website scope on Cloudy Success:
-• Project Type: ${scope.type}
-• Pages: ${scope.pages}
-• Selected Features: ${activeAddons || 'Standard build'}
-• Estimated Range: ₹${scope.lowEstimate.toLocaleString('en-IN')} – ₹${scope.highEstimate.toLocaleString('en-IN')}
-
-I would like to discuss next steps and confirm a proposal for my business!`;
-
-      const waUrl = `https://wa.me/919356047461?text=${encodeURIComponent(message)}`;
-      window.open(waUrl, '_blank');
-    });
-  }
-
-  // Paste into enquiry form
-  if (applyCalcFormBtn) {
-    applyCalcFormBtn.addEventListener('click', () => {
-      const scope = recalculateQuote();
-      const serviceSelect = document.getElementById('select-service');
-      const budgetSelect = document.getElementById('select-budget');
-      const messageText = document.getElementById('textarea-message');
-
-      if (serviceSelect) {
-        // match closest service
-        if (scope.type.includes('E-Commerce')) {
-          serviceSelect.value = 'E-commerce Website Development';
-        } else if (scope.type.includes('Portfolio')) {
-          serviceSelect.value = 'Portfolio Websites';
-        } else if (scope.type.includes('Web App')) {
-          serviceSelect.value = 'Web Applications';
-        } else {
-          serviceSelect.value = 'Business Website Development';
-        }
-      }
-
-      if (budgetSelect) {
-        if (scope.lowEstimate <= 6000) {
-          budgetSelect.selectedIndex = 0;
-        } else if (scope.lowEstimate <= 12000) {
-          budgetSelect.selectedIndex = 1;
-        } else if (scope.lowEstimate <= 25000) {
-          budgetSelect.selectedIndex = 2;
-        } else {
-          budgetSelect.selectedIndex = 3;
-        }
-      }
-
-      if (messageText) {
-        messageText.value = `Scope configured from calculator:
-- Desired Pages: ${scope.pages}
-- Estimated Range: ₹${scope.lowEstimate.toLocaleString('en-IN')} – ₹${scope.highEstimate.toLocaleString('en-IN')}
-- Please get in touch to discuss design specifics and timeline.`;
-      }
-    });
-  }
 
   /* =========================================================================
      12. QUICK ACTIONS FROM SERVICES & PRICING
@@ -974,7 +843,7 @@ Sent via cloudy-success.com`;
       submitFormBtn.disabled = true;
 
       const enquiryText = generateEnquiryText();
-      const waUrl = `https://wa.me/919356047461?text=${encodeURIComponent(enquiryText)}`;
+      const waUrl = `https://api.whatsapp.com/send?phone=919356047461&text=${encodeURIComponent(enquiryText)}`;
 
       // Save to localStorage as a safety copy
       try {
@@ -1025,32 +894,54 @@ Sent via cloudy-success.com`;
     });
   }
 
-  // Direct WhatsApp Send Button
+  // Direct WhatsApp Send Button (Always opens prefilled WhatsApp chat!)
   if (sendWhatsAppDirectBtn) {
-    sendWhatsAppDirectBtn.addEventListener('click', () => {
-      if (!validateForm()) {
-        const firstError = form.querySelector('.has-error input, .has-error select, .has-error textarea');
-        if (firstError) firstError.focus();
-        return;
-      }
-      const enquiryText = generateEnquiryText();
-      const waUrl = `https://wa.me/919356047461?text=${encodeURIComponent(enquiryText)}`;
-      window.open(waUrl, '_blank');
+    sendWhatsAppDirectBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const name = inputName && inputName.value.trim() ? inputName.value.trim() : 'Prospective Client';
+      const service = selectService && selectService.value ? selectService.value : 'Website Development / Redesign';
+      const budget = selectBudget && selectBudget.value ? selectBudget.value : 'To Be Discussed';
+      const userMsg = inputMessage && inputMessage.value.trim() ? inputMessage.value.trim() : 'I would like to discuss a website project with Cloudy Success.';
+
+      const message = `Hello Yash! I am reaching out regarding a website project on Cloudy Success:
+• Name: ${name}
+• Required Service: ${service}
+• Estimated Budget: ${budget}
+• Details: ${userMsg}
+
+Please let me know when we can discuss!`;
+
+      const waUrl = `https://api.whatsapp.com/send?phone=919356047461&text=${encodeURIComponent(message)}`;
+      window.location.href = waUrl;
     });
   }
 
-  // Direct Email Send Button
+  // Direct Email Send Button (Always opens prefilled email draft!)
   if (sendEmailDirectBtn) {
-    sendEmailDirectBtn.addEventListener('click', () => {
-      if (!validateForm()) {
-        const firstError = form.querySelector('.has-error input, .has-error select, .has-error textarea');
-        if (firstError) firstError.focus();
-        return;
-      }
-      const subject = `Website Project Enquiry: ${inputName.value.trim()} - ${selectService.value}`;
-      const body = generateEnquiryText();
-      const mailtoUrl = `mailto:pawaryash0711@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-      window.location.href = mailtoUrl;
+    sendEmailDirectBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const name = inputName && inputName.value.trim() ? inputName.value.trim() : 'Prospective Client';
+      const service = selectService && selectService.value ? selectService.value : 'Website Development / Consultation';
+      const budget = selectBudget && selectBudget.value ? selectBudget.value : 'To Be Discussed';
+      const phone = inputPhone && inputPhone.value.trim() ? inputPhone.value.trim() : 'Not provided';
+      const userMsg = inputMessage && inputMessage.value.trim() ? inputMessage.value.trim() : 'I would like to discuss a website project with Cloudy Success.';
+
+      const subject = `Website Project Enquiry: ${name} - ${service}`;
+      const body = `Hello Yash Pawar,
+
+I would like to discuss a website project with Cloudy Success:
+
+• Client / Brand: ${name}
+• Required Service: ${service}
+• Estimated Budget: ${budget}
+• Contact Phone: ${phone}
+
+Project Details & Requirements:
+${userMsg}
+
+Looking forward to your reply!`;
+
+      openUniversalEmail(subject, body);
     });
   }
 
@@ -1098,8 +989,8 @@ Sent via cloudy-success.com`;
       htmlRoot.setAttribute('data-theme', 'light');
       document.body.setAttribute('data-theme', 'light');
     } else {
-      htmlRoot.removeAttribute('data-theme');
-      document.body.removeAttribute('data-theme');
+      htmlRoot.setAttribute('data-theme', 'dark');
+      document.body.setAttribute('data-theme', 'dark');
     }
     localStorage.setItem('cloudy_theme', theme);
     updateThemeUI(theme);
@@ -1111,8 +1002,12 @@ Sent via cloudy-success.com`;
     applyTheme(nextTheme);
   }
 
-  // Initialize theme on load from storage
-  const savedTheme = localStorage.getItem('cloudy_theme') || 'dark';
+  // Initialize theme on load from storage (Default to CloudRegex Light & Contrast theme)
+  let savedTheme = localStorage.getItem('cloudy_theme');
+  if (savedTheme !== 'dark') {
+    savedTheme = 'light';
+    localStorage.setItem('cloudy_theme', 'light');
+  }
   applyTheme(savedTheme);
 
   if (themeToggleBtn) {
@@ -1157,5 +1052,118 @@ Sent via cloudy-success.com`;
   }
   hydrateDynamicPricing();
 
-});
+  /* =========================================================================
+     27. UNIVERSAL EMAIL HANDLER & SMART FALLBACK (GMAIL + MAILTO)
+     ========================================================================= */
+  function showToast(message, duration = 3200) {
+    let toast = document.getElementById('cloudy-toast');
+    if (!toast) {
+      toast = document.createElement('div');
+      toast.id = 'cloudy-toast';
+      toast.className = 'cloudy-floating-toast';
+      document.body.appendChild(toast);
+    }
+    toast.textContent = message;
+    toast.classList.add('is-visible');
+    clearTimeout(toast._timer);
+    toast._timer = setTimeout(() => {
+      toast.classList.remove('is-visible');
+    }, duration);
+  }
 
+  function openUniversalEmail(customSubject, customBody) {
+    const email = 'pawaryash0711@gmail.com';
+    const subject = customSubject || 'Website Project Enquiry - Cloudy Success';
+    const body = customBody || 'Hello Yash Pawar,\n\nI would like to discuss a website project with Cloudy Success.';
+    
+    const mailtoUrl = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${email}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    
+    const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+    
+    if (isMobile) {
+      window.location.href = mailtoUrl;
+      showToast(`✉️ Opening Mail app for ${email}...`);
+    } else {
+      // Desktop: Open Gmail compose in new tab directly (guaranteed to work even if Windows Mail is unconfigured)
+      const newWin = window.open(gmailUrl, '_blank');
+      if (!newWin || newWin.closed || typeof newWin.closed === 'undefined') {
+        window.location.href = mailtoUrl;
+      }
+      showToast(`✉️ Opening Gmail Compose for ${email}`);
+    }
+  }
+
+  function initUniversalEmailHandler() {
+    document.addEventListener('click', (e) => {
+      const emailLink = e.target.closest('a[href^="mailto:"], .dock-email');
+      if (emailLink && emailLink.id !== 'send-email-direct-btn') {
+        e.preventDefault();
+        const href = emailLink.getAttribute('href') || '';
+        let subject = 'Website Project Enquiry - Cloudy Success';
+        let body = 'Hello Yash, I would like to discuss a website project with Cloudy Success.';
+        if (href.includes('subject=')) {
+          try {
+            const urlParams = new URLSearchParams(href.replace(/^mailto:[^?]*\?/, ''));
+            if (urlParams.get('subject')) subject = urlParams.get('subject');
+            if (urlParams.get('body')) body = urlParams.get('body');
+          } catch(err) {}
+        }
+        openUniversalEmail(subject, body);
+      }
+    });
+  }
+  initUniversalEmailHandler();
+
+  /* =========================================================================
+     28. INTERACTIVE CLICK ANIMATIONS FOR ALL BOXES
+     ========================================================================= */
+  function initBoxClickAnimation() {
+    const boxSelectors = [
+      '.service-card',
+      '.portfolio-card',
+      '.process-step',
+      '.pricing-card',
+      '.guarantee-card',
+      '.about-card',
+      '.founder-card',
+      '.contact-info-card',
+      '.contact-form-card',
+      '.faq-item',
+      '.portfolio-cta-banner',
+      '.testimonial-invitation',
+      '.hero-stat-item',
+      '.info-item',
+      '.glass-panel'
+    ].join(', ');
+
+    document.querySelectorAll(boxSelectors).forEach(box => {
+      box.addEventListener('click', function(e) {
+        if (e.target.closest('a, button, input, select, textarea')) return;
+
+        const rect = box.getBoundingClientRect();
+        const ripple = document.createElement('span');
+        ripple.className = 'box-click-ripple';
+        
+        const size = Math.max(rect.width, rect.height) * 1.5;
+        const x = (e.clientX ? (e.clientX - rect.left) : (rect.width / 2)) - size / 2;
+        const y = (e.clientY ? (e.clientY - rect.top) : (rect.height / 2)) - size / 2;
+        
+        ripple.style.width = `${size}px`;
+        ripple.style.height = `${size}px`;
+        ripple.style.left = `${x}px`;
+        ripple.style.top = `${y}px`;
+
+        box.appendChild(ripple);
+        box.classList.add('box-clicked-active');
+
+        setTimeout(() => {
+          ripple.remove();
+          box.classList.remove('box-clicked-active');
+        }, 550);
+      });
+    });
+  }
+  initBoxClickAnimation();
+
+});
