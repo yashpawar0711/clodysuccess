@@ -23,11 +23,13 @@ document.addEventListener('DOMContentLoaded', () => {
     'Your Vision. Our Digital Solutions.'
   ];
 
+  const isMobile = window.innerWidth <= 768 || ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
+
   let progress = 0;
   let statusIndex = 0;
 
   const progressInterval = setInterval(() => {
-    progress += Math.floor(Math.random() * 14) + 8;
+    progress += isMobile ? 35 : (Math.floor(Math.random() * 14) + 8);
     if (progress > 100) progress = 100;
 
     if (preloaderBar) {
@@ -52,17 +54,17 @@ document.addEventListener('DOMContentLoaded', () => {
           setTimeout(() => {
             preloader.remove();
             triggerInitialEntrance();
-          }, 600);
+          }, isMobile ? 250 : 500);
         }
-      }, 300);
+      }, isMobile ? 100 : 250);
     }
-  }, 45);
+  }, isMobile ? 25 : 45);
 
   /* =========================================================================
-     2. AMBIENT CONSTELLATION CANVAS
+     2. AMBIENT CONSTELLATION CANVAS (DESKTOP ONLY — ZERO MOBILE OVERHEAD)
      ========================================================================= */
   const canvas = document.getElementById('ambient-canvas');
-  if (canvas && window.innerWidth > 768) {
+  if (canvas && !isMobile && window.innerWidth > 960) {
     const ctx = canvas.getContext('2d');
     let width = (canvas.width = window.innerWidth);
     let height = (canvas.height = window.innerHeight);
@@ -205,9 +207,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
-  window.addEventListener('scroll', handleScroll, { passive: true });
-  handleScroll();
-
   if (backToTopBtn) {
     backToTopBtn.addEventListener('click', () => {
       window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -215,13 +214,14 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* =========================================================================
-     5. NAVIGATION ACTIVE SECTION SPY
+     5. NAVIGATION ACTIVE SECTION SPY (THROTTLED & EFFICIENT)
      ========================================================================= */
   const sections = document.querySelectorAll('section[id]');
   const navLinks = document.querySelectorAll('.desktop-nav .nav-link');
   const mobileLinks = document.querySelectorAll('.mobile-nav-links .mobile-link');
 
   const updateActiveNav = () => {
+    if (sections.length === 0) return;
     const scrollPos = window.scrollY + 140;
 
     sections.forEach((section) => {
@@ -248,7 +248,27 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   };
 
-  window.addEventListener('scroll', updateActiveNav, { passive: true });
+  /* Unified 60fps Scroll Throttle (Zero Mobile Jitter / Zero Lag) */
+  let isScrollTicking = false;
+  let lastNavSpyTimestamp = 0;
+
+  const onScrollThrottled = () => {
+    handleScroll();
+    const now = performance.now();
+    if (now - lastNavSpyTimestamp > 140) {
+      updateActiveNav();
+      lastNavSpyTimestamp = now;
+    }
+    isScrollTicking = false;
+  };
+
+  window.addEventListener('scroll', () => {
+    if (!isScrollTicking) {
+      window.requestAnimationFrame(onScrollThrottled);
+      isScrollTicking = true;
+    }
+  }, { passive: true });
+  handleScroll();
 
   /* =========================================================================
      6. MOBILE DRAWER NAVIGATION
@@ -363,32 +383,36 @@ document.addEventListener('DOMContentLoaded', () => {
      ========================================================================= */
   const revealElements = document.querySelectorAll('.reveal-fade-up');
 
-  const revealObserver = new IntersectionObserver(
-    (entries, observer) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          const delay = entry.target.getAttribute('data-delay') || 0;
-          setTimeout(() => {
-            entry.target.classList.add('is-revealed');
-          }, delay);
+  if (isMobile) {
+    revealElements.forEach((el) => el.classList.add('is-revealed'));
+    countUpStats();
+  } else {
+    const revealObserver = new IntersectionObserver(
+      (entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const delay = entry.target.getAttribute('data-delay') || 0;
+            setTimeout(() => {
+              entry.target.classList.add('is-revealed');
+            }, delay);
 
-          // If hero stats strip was revealed, trigger numbers
-          if (entry.target.querySelector('.stat-number') || entry.target.classList.contains('hero-content')) {
-            countUpStats();
+            if (entry.target.querySelector('.stat-number') || entry.target.classList.contains('hero-content')) {
+              countUpStats();
+            }
+
+            observer.unobserve(entry.target);
           }
+        });
+      },
+      { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
+    );
 
-          observer.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
-  );
-
-  revealElements.forEach((el) => revealObserver.observe(el));
+    revealElements.forEach((el) => revealObserver.observe(el));
+  }
 
   function triggerInitialEntrance() {
     document.querySelectorAll('#hero .reveal-fade-up').forEach((el) => {
-      const delay = el.getAttribute('data-delay') || 0;
+      const delay = isMobile ? 0 : (el.getAttribute('data-delay') || 0);
       setTimeout(() => el.classList.add('is-revealed'), delay);
     });
     countUpStats();
