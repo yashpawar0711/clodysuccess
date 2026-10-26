@@ -222,6 +222,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const updateActiveNav = () => {
     if (sections.length === 0) return;
+    if (window.innerWidth <= 991 || isMobile) return;
     const scrollPos = window.scrollY + 140;
 
     sections.forEach((section) => {
