@@ -2055,6 +2055,242 @@ ul, ol {
 }
 
 /* --------------------------------------------------------------------------
+   COLORFUL SERVICE CARDS (Distinct Vibrant Colorful Themes)
+   -------------------------------------------------------------------------- */
+/* 1. Electric Blue (Business Website Development) */
+.service-card.service-card-blue {
+  background: linear-gradient(145deg, rgba(14, 30, 65, 0.78) 0%, rgba(10, 18, 38, 0.88) 100%) !important;
+  border: 1.5px solid rgba(56, 189, 248, 0.35) !important;
+  box-shadow: 0 12px 32px -8px rgba(14, 165, 233, 0.22) !important;
+}
+.service-card.service-card-blue:hover {
+  transform: translateY(-8px) !important;
+  border-color: rgba(56, 189, 248, 0.8) !important;
+  box-shadow: 0 20px 45px -8px rgba(14, 165, 233, 0.45), 0 0 25px rgba(56, 189, 248, 0.3) !important;
+}
+.service-card.service-card-blue .service-icon-box {
+  background: linear-gradient(135deg, rgba(14, 165, 233, 0.32), rgba(37, 99, 235, 0.22)) !important;
+  border-color: rgba(56, 189, 248, 0.5) !important;
+  color: #38bdf8 !important;
+}
+.service-card.service-card-blue:hover .service-icon-box {
+  background: linear-gradient(135deg, #0284c7 0%, #2563eb 100%) !important;
+  color: #ffffff !important;
+  box-shadow: 0 0 22px rgba(56, 189, 248, 0.7) !important;
+}
+.service-card.service-card-blue .service-enquire-btn {
+  background: linear-gradient(135deg, #0284c7 0%, #2563eb 100%) !important;
+  border: 1px solid rgba(125, 211, 252, 0.4) !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 16px rgba(2, 132, 199, 0.35) !important;
+}
+.service-card.service-card-blue .service-enquire-btn:hover {
+  background: linear-gradient(135deg, #0369a1 0%, #1d4ed8 100%) !important;
+  box-shadow: 0 8px 24px rgba(2, 132, 199, 0.55), 0 0 18px rgba(56, 189, 248, 0.5) !important;
+}
+
+/* 2. Emerald Green (E-Commerce Website Development) */
+.service-card.service-card-emerald {
+  background: linear-gradient(145deg, rgba(6, 46, 36, 0.78) 0%, rgba(8, 28, 22, 0.88) 100%) !important;
+  border: 1.5px solid rgba(52, 211, 153, 0.35) !important;
+  box-shadow: 0 12px 32px -8px rgba(16, 185, 129, 0.22) !important;
+}
+.service-card.service-card-emerald:hover {
+  transform: translateY(-8px) !important;
+  border-color: rgba(52, 211, 153, 0.8) !important;
+  box-shadow: 0 20px 45px -8px rgba(16, 185, 129, 0.45), 0 0 25px rgba(52, 211, 153, 0.3) !important;
+}
+.service-card.service-card-emerald .service-icon-box {
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.32), rgba(5, 150, 105, 0.22)) !important;
+  border-color: rgba(52, 211, 153, 0.5) !important;
+  color: #34d399 !important;
+}
+.service-card.service-card-emerald:hover .service-icon-box {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%) !important;
+  color: #ffffff !important;
+  box-shadow: 0 0 22px rgba(52, 211, 153, 0.7) !important;
+}
+.service-card.service-card-emerald .service-enquire-btn {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%) !important;
+  border: 1px solid rgba(167, 243, 208, 0.4) !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 16px rgba(16, 185, 129, 0.35) !important;
+}
+.service-card.service-card-emerald .service-enquire-btn:hover {
+  background: linear-gradient(135deg, #059669 0%, #047857 100%) !important;
+  box-shadow: 0 8px 24px rgba(16, 185, 129, 0.55), 0 0 18px rgba(52, 211, 153, 0.5) !important;
+}
+
+/* 3. Vivid Purple (Portfolio Websites) */
+.service-card.service-card-purple {
+  background: linear-gradient(145deg, rgba(48, 16, 78, 0.78) 0%, rgba(28, 10, 48, 0.88) 100%) !important;
+  border: 1.5px solid rgba(192, 132, 252, 0.35) !important;
+  box-shadow: 0 12px 32px -8px rgba(168, 85, 247, 0.22) !important;
+}
+.service-card.service-card-purple:hover {
+  transform: translateY(-8px) !important;
+  border-color: rgba(192, 132, 252, 0.8) !important;
+  box-shadow: 0 20px 45px -8px rgba(168, 85, 247, 0.45), 0 0 25px rgba(192, 132, 252, 0.3) !important;
+}
+.service-card.service-card-purple .service-icon-box {
+  background: linear-gradient(135deg, rgba(168, 85, 247, 0.32), rgba(126, 34, 206, 0.22)) !important;
+  border-color: rgba(192, 132, 252, 0.5) !important;
+  color: #c084fc !important;
+}
+.service-card.service-card-purple:hover .service-icon-box {
+  background: linear-gradient(135deg, #9333ea 0%, #7c3aed 100%) !important;
+  color: #ffffff !important;
+  box-shadow: 0 0 22px rgba(192, 132, 252, 0.7) !important;
+}
+.service-card.service-card-purple .service-enquire-btn {
+  background: linear-gradient(135deg, #9333ea 0%, #7c3aed 100%) !important;
+  border: 1px solid rgba(233, 213, 255, 0.4) !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 16px rgba(168, 85, 247, 0.35) !important;
+}
+.service-card.service-card-purple .service-enquire-btn:hover {
+  background: linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%) !important;
+  box-shadow: 0 8px 24px rgba(168, 85, 247, 0.55), 0 0 18px rgba(192, 132, 252, 0.5) !important;
+}
+
+/* 4. Radiant Amber (Responsive Web Design) */
+.service-card.service-card-amber {
+  background: linear-gradient(145deg, rgba(58, 30, 8, 0.78) 0%, rgba(38, 18, 6, 0.88) 100%) !important;
+  border: 1.5px solid rgba(251, 191, 36, 0.35) !important;
+  box-shadow: 0 12px 32px -8px rgba(245, 158, 11, 0.22) !important;
+}
+.service-card.service-card-amber:hover {
+  transform: translateY(-8px) !important;
+  border-color: rgba(251, 191, 36, 0.8) !important;
+  box-shadow: 0 20px 45px -8px rgba(245, 158, 11, 0.45), 0 0 25px rgba(251, 191, 36, 0.3) !important;
+}
+.service-card.service-card-amber .service-icon-box {
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.32), rgba(217, 119, 6, 0.22)) !important;
+  border-color: rgba(251, 191, 36, 0.5) !important;
+  color: #fbbf24 !important;
+}
+.service-card.service-card-amber:hover .service-icon-box {
+  background: linear-gradient(135deg, #f59e0b 0%, #ea580c 100%) !important;
+  color: #ffffff !important;
+  box-shadow: 0 0 22px rgba(251, 191, 36, 0.7) !important;
+}
+.service-card.service-card-amber .service-enquire-btn {
+  background: linear-gradient(135deg, #f59e0b 0%, #ea580c 100%) !important;
+  border: 1px solid rgba(254, 240, 138, 0.4) !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 16px rgba(245, 158, 11, 0.35) !important;
+}
+.service-card.service-card-amber .service-enquire-btn:hover {
+  background: linear-gradient(135deg, #d97706 0%, #c2410c 100%) !important;
+  box-shadow: 0 8px 24px rgba(245, 158, 11, 0.55), 0 0 18px rgba(251, 191, 36, 0.5) !important;
+}
+
+/* Light Mode Overrides for Colorful Service Cards */
+[data-theme="light"] .service-card.service-card-blue {
+  background: linear-gradient(145deg, #ffffff 0%, #f0f9ff 100%) !important;
+  border: 1.5px solid #7dd3fc !important;
+  box-shadow: 0 10px 25px -4px rgba(2, 132, 199, 0.16) !important;
+}
+[data-theme="light"] .service-card.service-card-blue:hover {
+  border-color: #0284c7 !important;
+  box-shadow: 0 18px 36px -6px rgba(2, 132, 199, 0.28) !important;
+}
+[data-theme="light"] .service-card.service-card-blue .service-title {
+  color: #0369a1 !important;
+}
+[data-theme="light"] .service-card.service-card-blue .service-desc {
+  color: #334155 !important;
+}
+[data-theme="light"] .service-card.service-card-blue .service-icon-box {
+  background: linear-gradient(135deg, #e0f2fe 0%, #bae6fd 100%) !important;
+  border-color: #38bdf8 !important;
+  color: #0284c7 !important;
+}
+[data-theme="light"] .service-card.service-card-blue .service-enquire-btn {
+  background: linear-gradient(135deg, #0284c7 0%, #2563eb 100%) !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 14px rgba(2, 132, 199, 0.35) !important;
+}
+
+[data-theme="light"] .service-card.service-card-emerald {
+  background: linear-gradient(145deg, #ffffff 0%, #f0fdf4 100%) !important;
+  border: 1.5px solid #6ee7b7 !important;
+  box-shadow: 0 10px 25px -4px rgba(16, 185, 129, 0.16) !important;
+}
+[data-theme="light"] .service-card.service-card-emerald:hover {
+  border-color: #059669 !important;
+  box-shadow: 0 18px 36px -6px rgba(16, 185, 129, 0.28) !important;
+}
+[data-theme="light"] .service-card.service-card-emerald .service-title {
+  color: #047857 !important;
+}
+[data-theme="light"] .service-card.service-card-emerald .service-desc {
+  color: #334155 !important;
+}
+[data-theme="light"] .service-card.service-card-emerald .service-icon-box {
+  background: linear-gradient(135deg, #dcfce7 0%, #a7f3d0 100%) !important;
+  border-color: #34d399 !important;
+  color: #059669 !important;
+}
+[data-theme="light"] .service-card.service-card-emerald .service-enquire-btn {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%) !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 14px rgba(16, 185, 129, 0.35) !important;
+}
+
+[data-theme="light"] .service-card.service-card-purple {
+  background: linear-gradient(145deg, #ffffff 0%, #faf5ff 100%) !important;
+  border: 1.5px solid #d8b4fe !important;
+  box-shadow: 0 10px 25px -4px rgba(168, 85, 247, 0.16) !important;
+}
+[data-theme="light"] .service-card.service-card-purple:hover {
+  border-color: #9333ea !important;
+  box-shadow: 0 18px 36px -6px rgba(168, 85, 247, 0.28) !important;
+}
+[data-theme="light"] .service-card.service-card-purple .service-title {
+  color: #6d28d9 !important;
+}
+[data-theme="light"] .service-card.service-card-purple .service-desc {
+  color: #334155 !important;
+}
+[data-theme="light"] .service-card.service-card-purple .service-icon-box {
+  background: linear-gradient(135deg, #f3e8ff 0%, #e9d5ff 100%) !important;
+  border-color: #c084fc !important;
+  color: #7c3aed !important;
+}
+[data-theme="light"] .service-card.service-card-purple .service-enquire-btn {
+  background: linear-gradient(135deg, #9333ea 0%, #7c3aed 100%) !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 14px rgba(168, 85, 247, 0.35) !important;
+}
+
+[data-theme="light"] .service-card.service-card-amber {
+  background: linear-gradient(145deg, #ffffff 0%, #fffbeb 100%) !important;
+  border: 1.5px solid #fcd34d !important;
+  box-shadow: 0 10px 25px -4px rgba(245, 158, 11, 0.16) !important;
+}
+[data-theme="light"] .service-card.service-card-amber:hover {
+  border-color: #d97706 !important;
+  box-shadow: 0 18px 36px -6px rgba(245, 158, 11, 0.28) !important;
+}
+[data-theme="light"] .service-card.service-card-amber .service-title {
+  color: #b45309 !important;
+}
+[data-theme="light"] .service-card.service-card-amber .service-desc {
+  color: #334155 !important;
+}
+[data-theme="light"] .service-card.service-card-amber .service-icon-box {
+  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%) !important;
+  border-color: #fbbf24 !important;
+  color: #d97706 !important;
+}
+[data-theme="light"] .service-card.service-card-amber .service-enquire-btn {
+  background: linear-gradient(135deg, #f59e0b 0%, #ea580c 100%) !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 14px rgba(245, 158, 11, 0.35) !important;
+}
+
+/* --------------------------------------------------------------------------
    14. PORTFOLIO SECTION
    -------------------------------------------------------------------------- */
 .portfolio-filters {
