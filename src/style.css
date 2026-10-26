@@ -1109,8 +1109,8 @@ ul, ol {
    11. HERO SECTION
    -------------------------------------------------------------------------- */
 .hero-section {
-  padding-top: calc(var(--header-height) + 18px);
-  padding-bottom: 30px;
+  padding-top: calc(var(--topbar-height) + var(--header-height) + 52px);
+  padding-bottom: 44px;
   min-height: auto;
   display: flex;
   flex-direction: column;
@@ -1185,9 +1185,10 @@ ul, ol {
   font-family: var(--font-heading);
   font-size: clamp(2.4rem, 4.8vw, 4.2rem);
   font-weight: 800;
-  line-height: 1.12;
+  line-height: 1.2;
   letter-spacing: -0.03em;
   color: var(--text-white);
+  margin-top: 10px;
   margin-bottom: 22px;
 }
 
@@ -4885,7 +4886,7 @@ ul, ol {
   /* Compact Hero Section with Zero Overlap */
   .hero-section,
   .hero-section.section-padding {
-    padding-top: 124px !important;
+    padding-top: 136px !important;
     padding-bottom: 28px !important;
     min-height: auto !important;
   }
