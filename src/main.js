@@ -402,7 +402,7 @@ document.addEventListener('DOMContentLoaded', () => {
       title: 'Apex Horizon Capital',
       category: 'Corporate Business Website',
       year: '2026 Production Standard',
-      image: '/assets/portfolio-corporate.jpg',
+      image: '/static/assets/portfolio-corporate.jpg',
       desc: 'An institutional web presence designed for a boutique private equity and financial consulting firm. The project emphasizes executive credibility, clear client service pathways, and real-time interactive financial performance telemetry.',
       highlights: [
         'Dark mode aesthetic with electric cyan data visualizations and custom growth metrics',
@@ -416,7 +416,7 @@ document.addEventListener('DOMContentLoaded', () => {
       title: 'The Obsidian Room',
       category: 'Hospitality & Fine Dining',
       year: '2026 Production Standard',
-      image: '/assets/portfolio-restaurant.jpg',
+      image: '/static/assets/portfolio-restaurant.jpg',
       desc: 'A luxury fine-dining gastronomic showcase engineered with dark slate textures, ambient gold lighting, dynamic seasonal menu categorizations, and an integrated frictionless table reservation flow.',
       highlights: [
         'Interactive culinary dish explorer with dietary filters (Vegan, Gluten-Free, Chef Special)',
@@ -430,7 +430,7 @@ document.addEventListener('DOMContentLoaded', () => {
       title: 'Aeterna Architecture',
       category: 'Personal & Studio Portfolio',
       year: '2026 Production Standard',
-      image: '/assets/portfolio-architect.jpg',
+      image: '/static/assets/portfolio-architect.jpg',
       desc: 'A Swiss-inspired minimalist editorial portfolio designed for an award-winning architectural firm. The site allows spatial photography and floorplan blueprints to take center stage with refined typography and smooth transitions.',
       highlights: [
         'Interactive architectural blueprint viewer and split-screen comparison mode',
@@ -444,7 +444,7 @@ document.addEventListener('DOMContentLoaded', () => {
       title: 'Velo Audio Elite',
       category: 'E-Commerce Storefront',
       year: '2026 Production Standard',
-      image: '/assets/portfolio-ecommerce.jpg',
+      image: '/static/assets/portfolio-ecommerce.jpg',
       desc: 'A modern direct-to-consumer online storefront for high-end audiophile hardware. Engineered for high conversion with instant cart drawer previews, product color selectors, customer review carousels, and rapid checkout pathways.',
       highlights: [
         'Instant sliding cart drawer with live subtotal and free shipping progress meter',
@@ -458,7 +458,7 @@ document.addEventListener('DOMContentLoaded', () => {
       title: 'Aurora Cloud Analytics',
       category: 'SaaS Dashboard Web Application',
       year: '2026 Production Standard',
-      image: '/assets/portfolio-saas.jpg',
+      image: '/static/assets/portfolio-saas.jpg',
       desc: 'A futuristic telemetry and subscription analytics web app interface designed for SaaS startups. Features glowing neon charts, live MRR tracking, user cohort trends, churn probability monitoring, and role-based access management.',
       highlights: [
         'Real-time data visualization with neon area charts and custom SVG tooltips',
@@ -472,7 +472,7 @@ document.addEventListener('DOMContentLoaded', () => {
       title: 'Nebula Digital Studio',
       category: 'Creative Agency Website',
       year: '2026 Production Standard',
-      image: '/assets/portfolio-agency.jpg',
+      image: '/static/assets/portfolio-agency.jpg',
       desc: 'A boundary-pushing motion-heavy digital studio website designed to captivate prospective clients. Incorporates electric laser glows, 3D floating visual layers, magnetic button interactions, and award-winning micro-animations.',
       highlights: [
         'Advanced CSS keyframe motion choreography and subtle layered depth',
@@ -531,32 +531,73 @@ document.addEventListener('DOMContentLoaded', () => {
   const modalTech = document.getElementById('modal-project-tech');
   const modalDiscussBtn = document.getElementById('modal-discuss-btn');
 
-  const openModal = (projectId) => {
-    const data = projectDatabase[projectId];
-    if (!data || !modal) return;
+  const slugAliasMap = {
+    'apex-horizon': 'corporate',
+    'obsidian-room': 'restaurant',
+    'aeterna-architects': 'portfolio',
+    'velo-audio': 'ecommerce',
+    'aurora-metrics': 'saas',
+    'nebula-digital': 'agency'
+  };
 
-    modalImg.src = data.image;
-    modalImg.alt = `${data.title} - ${data.category}`;
-    modalCategory.textContent = data.category;
-    modalTitle.textContent = data.title;
-    modalDesc.textContent = data.desc;
+  const openModal = (projectId, cardEl = null) => {
+    const key = slugAliasMap[projectId] || projectId;
+    const data = projectDatabase[key] || projectDatabase[projectId];
+    if (!modal) return;
 
-    // Highlights
-    modalHighlights.innerHTML = '';
-    data.highlights.forEach((item) => {
-      const li = document.createElement('li');
-      li.textContent = item;
-      modalHighlights.appendChild(li);
-    });
+    // Determine target photo: from card thumb or database entry
+    let photoUrl = data ? data.image : '';
+    if (cardEl) {
+      const cardThumb = cardEl.querySelector('.project-thumb');
+      if (cardThumb && cardThumb.getAttribute('src')) {
+        photoUrl = cardThumb.getAttribute('src');
+      }
+    }
 
-    // Tech
-    modalTech.innerHTML = '';
-    data.tech.forEach((t) => {
-      const tag = document.createElement('span');
-      tag.className = 'tech-tag';
-      tag.textContent = t;
-      modalTech.appendChild(tag);
-    });
+    if (modalImg) {
+      modalImg.onerror = function() {
+        if (!this.dataset.fallbackTried) {
+          this.dataset.fallbackTried = '1';
+          if (this.src.includes('/static/assets/')) {
+            this.src = this.src.replace('/static/assets/', '/assets/');
+          } else if (this.src.includes('/assets/')) {
+            this.src = this.src.replace('/assets/', '/static/assets/');
+          }
+        }
+      };
+      delete modalImg.dataset.fallbackTried;
+      if (photoUrl) {
+        modalImg.src = photoUrl;
+      }
+      modalImg.alt = data ? `${data.title} - ${data.category}` : 'Project Showcase Preview';
+    }
+
+    if (data) {
+      if (modalCategory) modalCategory.textContent = data.category;
+      if (modalTitle) modalTitle.textContent = data.title;
+      if (modalDesc) modalDesc.textContent = data.desc;
+
+      // Highlights
+      if (modalHighlights) {
+        modalHighlights.innerHTML = '';
+        data.highlights.forEach((item) => {
+          const li = document.createElement('li');
+          li.textContent = item;
+          modalHighlights.appendChild(li);
+        });
+      }
+
+      // Tech
+      if (modalTech) {
+        modalTech.innerHTML = '';
+        data.tech.forEach((t) => {
+          const tag = document.createElement('span');
+          tag.className = 'tech-tag';
+          tag.textContent = t;
+          modalTech.appendChild(tag);
+        });
+      }
+    }
 
     modal.hidden = false;
     modal.removeAttribute('hidden');
@@ -572,14 +613,24 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.style.overflow = '';
   };
 
-  document.querySelectorAll('.view-case-btn, .portfolio-card').forEach((el) => {
-    el.addEventListener('click', (e) => {
-      const btn = el.classList.contains('view-case-btn') ? el : el.querySelector('.view-case-btn');
-      if (btn) {
-        e.preventDefault();
-        const projectId = btn.getAttribute('data-project-id');
-        if (projectId) openModal(projectId);
-      }
+  // Click on View Case Details button
+  document.querySelectorAll('.view-case-btn').forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      const card = btn.closest('.portfolio-card');
+      const projectId = btn.getAttribute('data-project-id') || (card && card.getAttribute('data-category'));
+      if (projectId) openModal(projectId, card);
+    });
+  });
+
+  // Click on Portfolio Card container
+  document.querySelectorAll('.portfolio-card').forEach((card) => {
+    card.addEventListener('click', (e) => {
+      if (e.target.closest('.view-case-btn')) return;
+      const btn = card.querySelector('.view-case-btn');
+      const projectId = (btn && btn.getAttribute('data-project-id')) || card.getAttribute('data-category') || card.getAttribute('data-project');
+      if (projectId) openModal(projectId, card);
     });
   });
 

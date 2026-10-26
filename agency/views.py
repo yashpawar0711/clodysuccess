@@ -18,42 +18,6 @@ from .security import (
 
 DEFAULT_PROJECTS = [
     {
-        "slug": "corporate",
-        "title": "Apex Horizon Capital",
-        "category": "corporate",
-        "category_label": "Corporate Business Website",
-        "year": "2026 Production Standard",
-        "image_url": "/static/assets/portfolio-corporate.jpg",
-        "summary": "An institutional web presence designed for a boutique private equity and financial consulting firm with interactive data metrics and investor portal UX.",
-        "description": "An institutional web presence designed for a boutique private equity and financial consulting firm. The project emphasizes executive credibility, clear client service pathways, and real-time interactive financial performance telemetry.",
-        "highlights": [
-            "Dark mode aesthetic with electric cyan data visualizations and custom growth metrics",
-            "Intuitive investor portal UX with secure document request workflows",
-            "Sub-1.2s average load performance across all global test locations",
-            "Full lead-capture integration with automated email alerts and WhatsApp routing"
-        ],
-        "tech_stack": ["Vanilla HTML5", "Chart.js", "Responsive Grid", "SEO Schema", "High-Performance CSS"],
-        "order": 1
-    },
-    {
-        "slug": "restaurant",
-        "title": "The Obsidian Room",
-        "category": "restaurant",
-        "category_label": "Hospitality & Fine Dining",
-        "year": "2026 Production Standard",
-        "image_url": "/static/assets/portfolio-restaurant.jpg",
-        "summary": "Luxury gastronomic dining experience website with dark slate aesthetics, dynamic seasonal wine card, and table reservation booking flow.",
-        "description": "A luxury fine-dining gastronomic showcase engineered with dark slate textures, ambient gold lighting, dynamic seasonal menu categorizations, and an integrated frictionless table reservation flow.",
-        "highlights": [
-            "Interactive culinary dish explorer with dietary filters (Vegan, Gluten-Free, Chef Special)",
-            "Table reservation booking bar with instant guest count and date selection",
-            "Mobile-first digital menu with touch-friendly navigation and wine pairings",
-            "Zero layout shifts (CLS < 0.01) for seamless mobile dining reservations"
-        ],
-        "tech_stack": ["Touch Gestures", "Mobile Menu", "WebP Artistry", "Custom CSS Tokens", "Booking Engine UX"],
-        "order": 2
-    },
-    {
         "slug": "portfolio",
         "title": "Aeterna Architecture",
         "category": "portfolio",
@@ -69,25 +33,7 @@ DEFAULT_PROJECTS = [
             "Direct inquiry button with pre-selected project type"
         ],
         "tech_stack": ["CSS Grid", "Minimalist UI", "Blueprint Lightbox", "Parallax Scrolling", "Editorial Typography"],
-        "order": 3
-    },
-    {
-        "slug": "ecommerce",
-        "title": "Velo Audio Elite",
-        "category": "ecommerce",
-        "category_label": "E-Commerce Storefront",
-        "year": "2026 Production Standard",
-        "image_url": "/static/assets/portfolio-ecommerce.jpg",
-        "summary": "Direct-to-consumer premium audiophile storefront with interactive product 360 preview, one-click cart drawer, and review system.",
-        "description": "A modern direct-to-consumer online storefront for high-end audiophile hardware. Engineered for high conversion with instant cart drawer previews, product color selectors, customer review carousels, and rapid checkout pathways.",
-        "highlights": [
-            "Instant sliding cart drawer with live subtotal and free shipping progress meter",
-            "Interactive color variant toggles with smooth product asset swapping",
-            "Secure multi-gateway payment architecture (Stripe, Razorpay, Apple Pay)",
-            "Speed-tuned product grid with lazy loading and instant search"
-        ],
-        "tech_stack": ["Cart Drawer UX", "E-Commerce Core", "Payment Gateways", "Inventory Filter", "Conversion Funnel"],
-        "order": 4
+        "order": 1
     },
     {
         "slug": "saas",
@@ -105,7 +51,7 @@ DEFAULT_PROJECTS = [
             "Scalable component architecture ready for backend API hydration"
         ],
         "tech_stack": ["API Ready", "Dark Mode UI", "Single Page App", "Custom SVG Charts", "Data Visualizations"],
-        "order": 5
+        "order": 2
     },
     {
         "slug": "agency",
@@ -123,7 +69,7 @@ DEFAULT_PROJECTS = [
             "Strictly optimized for 60fps rendering without memory leaks"
         ],
         "tech_stack": ["CSS Keyframes", "Custom Motion", "WebGL Ambience", "Fluid Typography", "Magnetic Physics"],
-        "order": 6
+        "order": 3
     }
 ]
 

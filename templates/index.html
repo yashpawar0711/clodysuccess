@@ -668,10 +668,7 @@
           <!-- Filter Pills -->
           <div class="portfolio-filters" role="tablist" aria-label="Portfolio filters">
             <button type="button" class="filter-btn active" data-filter="all" role="tab" aria-selected="true">All Projects</button>
-            <button type="button" class="filter-btn" data-filter="corporate" role="tab" aria-selected="false">Corporate</button>
-            <button type="button" class="filter-btn" data-filter="restaurant" role="tab" aria-selected="false">Restaurant</button>
             <button type="button" class="filter-btn" data-filter="portfolio" role="tab" aria-selected="false">Portfolio</button>
-            <button type="button" class="filter-btn" data-filter="ecommerce" role="tab" aria-selected="false">E-Commerce</button>
             <button type="button" class="filter-btn" data-filter="saas" role="tab" aria-selected="false">SaaS Dashboard</button>
             <button type="button" class="filter-btn" data-filter="agency" role="tab" aria-selected="false">Creative Agency</button>
           </div>
@@ -683,7 +680,7 @@
           {% for project in projects %}
           <div class="portfolio-card glass-panel reveal-fade-up" data-category="{{ project.category }}" data-project="{{ project.project_slug }}">
             <div class="project-thumb-box">
-              <img src="{{ project.image_url }}" alt="{{ project.title }} - {{ project.category_label }}" class="project-thumb" width="640" height="360" loading="lazy">
+              <img src="{{ project.image_url }}" alt="{{ project.title }} - {{ project.category_label }}" class="project-thumb" width="640" height="360" loading="lazy" onerror="if(!this.dataset.retried){this.dataset.retried='1';this.src=this.src.includes('/static/assets/')?this.src.replace('/static/assets/','/assets/'):this.src.replace('/assets/','/static/assets/');}">
               <div class="project-overlay">
                 <button type="button" class="btn btn-primary btn-sm view-case-btn" data-project-id="{{ project.project_slug }}">
                   <span>View Concept Details</span>
@@ -1530,6 +1527,6 @@
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.4/dist/confetti.browser.min.js"></script>
-  <script src="/static/js/main.js?v=3.7"></script>
+  <script src="/static/js/main.js?v=4.0"></script>
 </body>
 </html>
