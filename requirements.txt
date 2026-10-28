@@ -1,9 +1,8 @@
+
 asgiref>=3.9.1
 django>=6.0.0
 sqlparse>=0.5.0
 tzdata>=2026.1
 gunicorn
-<<<<<<< HEAD
 whitenoise
-=======
->>>>>>> 37e3785e0d8e75094e82f164d478a60c8ec8f2c2
+
